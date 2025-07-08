@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import * as BooksAPI from "./BooksAPI";
 import Book from "./Book";
 import { useBooksApi } from "./hooks/useBooksApi";
 
@@ -30,13 +29,14 @@ function Search({ onChangeShelf, books: shelfBooks }) {
     <div className='search-books'>
       <div className='search-books-bar'>
         <Link to='/'>
-          <button className='close-search'>Close</button>
+          <button className='close-search' aria-label="Close search" tabIndex={0}>Close</button>
         </Link>
         <div className='search-books-input-wrapper'>
           <input
             onChange={(e) => handleSearch(e.target.value)}
             type='text'
             placeholder='Search by title or author'
+            aria-label='Search by title or author'
           />
         </div>
       </div>

@@ -20,6 +20,7 @@ function Shelf({ shelf, books, onChangeShelf }) {
           <AnimatePresence>
             {shelfBooks.map((book) => (
               <motion.li
+                layout
                 key={book.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
