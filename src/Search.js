@@ -1,62 +1,60 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
 import Book from "./Book";
+import { useBooksApi } from "./hooks/useBooksApi";
 
-class Search extends React.Component {
-  state = {
-    query: "",
-    books: [],
-  };
+function Search({ onChangeShelf, books: shelfBooks }) {
+  const [query, setQuery] = useState("");
+  const [books, setBooks] = useState([]);
+  const { loading, error, searchBooks } = useBooksApi();
 
-  searchBooks = (query) => {
+  const handleSearch = useCallback((query) => {
     if (!query) {
-      this.setState({ query: "", books: [] });
+      setQuery("");
+      setBooks([]);
     } else {
-      this.setState({ query: query.trim() });
-      BooksAPI.search(query).then((books) => {
-        if (books.error) {
-          books = [];
-        }
-        books.map((book) =>
-          this.props.books
+      setQuery(query.trim());
+      searchBooks(query).then((results) => {
+        results.forEach((book) => {
+          shelfBooks
             .filter((b) => b.id === book.id)
-            .map((b) => (book.shelf = b.shelf))
-        );
-        this.setState({ books });
+            .forEach((b) => (book.shelf = b.shelf));
+        });
+        setBooks(results);
       });
     }
-  };
+  }, [shelfBooks, searchBooks]);
 
-  render() {
-    return (
-      <div className='search-books'>
-        <div className='search-books-bar'>
-          <Link to='/'>
-            <button className='close-search'>Close</button>
-          </Link>
-          <div className='search-books-input-wrapper'>
-            <input
-              onChange={(e) => this.searchBooks(e.target.value)}
-              type='text'
-              placeholder='Search by title or author'
-            />
-          </div>
-        </div>
-        <div className='search-books-results'>
-          <ol className='books-grid'>
-            {this.state.books.map((book) => (
-              <Book
-                onChangeShelf={this.props.onChangeShelf}
-                key={book.id}
-                book={book}
-              />
-            ))}
-          </ol>
+  return (
+    <div className='search-books'>
+      <div className='search-books-bar'>
+        <Link to='/'>
+          <button className='close-search'>Close</button>
+        </Link>
+        <div className='search-books-input-wrapper'>
+          <input
+            onChange={(e) => handleSearch(e.target.value)}
+            type='text'
+            placeholder='Search by title or author'
+          />
         </div>
       </div>
-    );
-  }
+      <div className='search-books-results'>
+        {loading && <div className="loading">Searching books...</div>}
+        {error && <div className="error">{error}</div>}
+        <ol className='books-grid'>
+          {books.map((book) => (
+            <Book
+              onChangeShelf={onChangeShelf}
+              key={book.id}
+              book={book}
+            />
+          ))}
+        </ol>
+      </div>
+    </div>
+  );
 }
 
 export default Search;
