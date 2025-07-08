@@ -1,7 +1,7 @@
 import React from "react";
 import Book from "./Book";
 import "./App.css";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { AnimatePresence, motion } from "framer-motion";
 
 class Shelf extends React.Component {
   state = {
@@ -20,24 +20,25 @@ class Shelf extends React.Component {
         <h2 className='bookshelf-title'>{shelfTitle}</h2>
         <div className='bookshelf-books'>
           <ol className='books-grid'>
-            <TransitionGroup component={null}>
+            <AnimatePresence>
               {books
                 .filter((books) => books.shelf === shelf)
                 .map((book) => (
-                  <CSSTransition
-                    in={this.state.mounted}
-                    timeout={500}
+                  <motion.li
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
                     key={book.id}
-                    classNames='fade'
                   >
                     <Book
                       onChangeShelf={this.props.onChangeShelf}
                       key={book.id}
                       book={book}
                     />
-                  </CSSTransition>
+                  </motion.li>
                 ))}
-            </TransitionGroup>
+            </AnimatePresence>
           </ol>
         </div>
       </div>

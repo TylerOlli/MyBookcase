@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "framer-motion": "^12.23.0",
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "2.1.1",
-    "react-transition-group": "^4.4.1",
-    "react-transition-group-v2": "^4.3.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.6.3",
+    "react-router-dom": "^7.6.3",
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
@@ -17,6 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "/MyBookcase",
   "eslintConfig": {
     "extends": "react-app"
   },

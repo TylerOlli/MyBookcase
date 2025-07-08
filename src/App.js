@@ -1,46 +1,44 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import * as BooksAPI from "./BooksAPI";
-import { Route, Link, Switch, withRouter } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Route, Link, Routes, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import "./App.css";
 import Shelf from "./Shelf";
 import Search from "./Search";
 
-class App extends React.Component {
-  state = {
-    books: [],
-  };
+function App() {
+  const [books, setBooks] = useState([]);
+  const location = useLocation();
 
-  changeShelf = (book, shelf) => {
-    if (this.state.books) {
+  const changeShelf = useCallback((book, shelf) => {
+    if (books) {
       BooksAPI.update(book, shelf).then(() => {
         book.shelf = shelf;
-        this.setState((state) => ({
-          books: state.books.filter((b) => b.id !== book.id).concat([book]),
-        }));
+        setBooks((prevBooks) => prevBooks.filter((b) => b.id !== book.id).concat([book]));
       });
     }
-  };
+  }, [books]);
 
-  componentDidMount() {
+  useEffect(() => {
     BooksAPI.getAll().then((books) => {
-      this.setState(() => ({
-        books,
-      }));
+      setBooks(books);
     });
-  }
+  }, []);
 
-  render() {
-    const { books } = this.state;
-    const { location, history } = this.props;
-    return (
-      <TransitionGroup>
-        <CSSTransition key={location.key} classNames={"fade"} timeout={1000}>
-          <Switch history={history}>
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.key}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div>
+          <Routes location={location}>
             <Route
-              exact
               path='/'
-              render={() => (
+              element={
                 <div className='app'>
                   <div className='list-books'>
                     <div className='list-books-title'>
@@ -50,17 +48,17 @@ class App extends React.Component {
                       <Shelf
                         shelf={"currentlyReading"}
                         books={books}
-                        onChangeShelf={this.changeShelf}
+                        onChangeShelf={changeShelf}
                       />
                       <Shelf
                         shelf={"wantToRead"}
                         books={books}
-                        onChangeShelf={this.changeShelf}
+                        onChangeShelf={changeShelf}
                       />
                       <Shelf
                         shelf={"read"}
                         books={books}
-                        onChangeShelf={this.changeShelf}
+                        onChangeShelf={changeShelf}
                       />
                     </div>
                     <div className='open-search'>
@@ -70,19 +68,17 @@ class App extends React.Component {
                     </div>
                   </div>
                 </div>
-              )}
+              }
             />
             <Route
               path='/search'
-              render={() => (
-                <Search onChangeShelf={this.changeShelf} books={books} />
-              )}
+              element={<Search onChangeShelf={changeShelf} books={books} />}
             />
-          </Switch>
-        </CSSTransition>
-      </TransitionGroup>
-    );
-  }
+          </Routes>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
 }
 
-export default withRouter(App);
+export default App;
