@@ -15,64 +15,66 @@ function App() {
   }, [refreshBooks]);
 
   return (
-    <main role="main" tabIndex={-1}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={location.key}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-        >
-          {initialLoading && <div className="loading">Loading books...</div>}
-          {error && <div className="error">{error}</div>}
-          {!initialLoading && !error && (
-            <Routes location={location}>
-              <Route
-                path='/'
-                element={
-                  <div className='app'>
-                    <div className='list-books'>
-                      <div className='list-books-title'>
-                        <h1>MyBookcase</h1>
-                      </div>
-                      <div className='list-books-content'>
-                        <Shelf
-                          shelf={"currentlyReading"}
-                          books={books}
-                          onChangeShelf={changeShelf}
-                        />
-                        <Shelf
-                          shelf={"wantToRead"}
-                          books={books}
-                          onChangeShelf={changeShelf}
-                        />
-                        <Shelf
-                          shelf={"read"}
-                          books={books}
-                          onChangeShelf={changeShelf}
-                        />
-                      </div>
-                      <div className='open-search'>
-                        <Link to='/search'>
-                          <button aria-label="Add a book" tabIndex={0}>
-                            Add a book
-                          </button>
-                        </Link>
+    <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <main id="main-content" role="main" tabIndex={-1} aria-labelledby="app-title">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.key}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            {error && <div className="error" role="alert" aria-live="assertive">{error}</div>}
+            {!error && (
+              <Routes location={location}>
+                <Route
+                  path='/'
+                  element={
+                    <div className='app'>
+                      <div className='list-books'>
+                        <div className='list-books-title'>
+                          <h1>MyBookcase</h1>
+                        </div>
+                        <div className='list-books-content'>
+                          <Shelf
+                            shelf={"currentlyReading"}
+                            books={books}
+                            onChangeShelf={changeShelf}
+                          />
+                          <Shelf
+                            shelf={"wantToRead"}
+                            books={books}
+                            onChangeShelf={changeShelf}
+                          />
+                          <Shelf
+                            shelf={"read"}
+                            books={books}
+                            onChangeShelf={changeShelf}
+                          />
+                        </div>
+                        <div className='open-search'>
+                          <Link to='/search'>
+                            <button aria-label="Add a book" tabIndex={0}>
+                              Add a book
+                            </button>
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                }
-              />
-              <Route
-                path='/search'
-                element={<Search onChangeShelf={changeShelf} books={books} />}
-              />
-            </Routes>
-          )}
-        </motion.div>
-      </AnimatePresence>
-    </main>
+                  }
+                />
+                <Route
+                  path='/search'
+                  element={<Search onChangeShelf={changeShelf} books={books} />}
+                />
+              </Routes>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </main>
+    </>
   );
 }
 
