@@ -40,7 +40,7 @@ body {
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 .list-books-title h1 {
@@ -54,9 +54,275 @@ body {
   letter-spacing: -0.02em;
 }
 
+/* Search Container */
+.search-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 9998;
+}
+
+.search-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  background: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.search-button:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.search-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Search Dropdown */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  max-height: 550px;
+  overflow-y: auto;
+  z-index: 9999;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+.search-dropdown.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0;
+  margin-top: 0;
+  max-height: none;
+  height: 100vh;
+  z-index: 10000;
+}
+
+.dropdown-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.dropdown-no-results {
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.dropdown-no-results p:first-child {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-no-results p:last-child {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.dropdown-header {
+  padding: 1rem 1.5rem 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #667eea;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.search-dropdown.expanded .dropdown-header {
+  padding: 1.5rem 2rem 1rem;
+  font-size: 1rem;
+}
+
+.expand-toggle {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expand-toggle:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+  color: #764ba2;
+}
+
+.dropdown-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.close-expanded {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-expanded:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.dropdown-results {
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  max-height: 350px;
+  overflow-y: auto;
+  width: 100%;
+  transition: max-height 0.3s ease;
+}
+
+.search-dropdown.expanded .dropdown-results {
+  max-height: calc(100vh - 120px);
+  padding: 2rem;
+}
+
+.dropdown-book-item {
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-book-item:hover {
+  background-color: #f8fafc;
+}
+
+.dropdown-book-item .book {
+  transform: scale(1);
+  margin: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.dropdown-book-item .book:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+  .dropdown-results {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .dropdown-book-item .book {
+    transform: scale(0.9);
+  }
+  
+  .dropdown-book-item .book:hover {
+    transform: scale(0.95);
+  }
+  
+  .search-dropdown.expanded .dropdown-results {
+    max-height: calc(100vh - 100px);
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-results {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .dropdown-book-item .book {
+    transform: scale(0.85);
+  }
+  
+  .dropdown-book-item .book:hover {
+    transform: scale(0.9);
+  }
+  
+  .search-dropdown.expanded .dropdown-results {
+    max-height: calc(100vh - 80px);
+    padding: 1rem;
+  }
+}
+
 /* Main Content Area */
 .list-books-content {
-  padding: 2rem 1rem 6rem;
+  padding: 2rem 1rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -338,55 +604,7 @@ body {
   background: transparent;
 }
 
-/* Add Book Button */
-.open-search {
-  position: fixed;
-  right: 2rem;
-  bottom: 2rem;
-  z-index: 100;
-}
 
-.open-search button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  background-image: url("./icons/add.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 24px;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-  border: none;
-  font-size: 0;
-  outline: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.open-search button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
-}
-
-.open-search button:active {
-  transform: scale(0.95);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-  }
-  50% {
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6), 0 0 0 4px rgba(102, 126, 234, 0.1);
-  }
-}
-
-.open-search button {
-  animation: pulse 2s infinite;
-}
 
 /* Search Page Styles */
 .search-books {

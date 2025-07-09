@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useCallback, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import Book from "./Book";
 import { useBooksApi } from "./hooks/useBooksApi";
 
@@ -7,6 +7,7 @@ function Search({ onChangeShelf, books: shelfBooks }) {
   const [query, setQuery] = useState("");
   const [books, setBooks] = useState([]);
   const { loading, error, searchBooks } = useBooksApi();
+  const [searchParams] = useSearchParams();
 
   const handleSearch = useCallback((query) => {
     if (!query) {
@@ -24,6 +25,15 @@ function Search({ onChangeShelf, books: shelfBooks }) {
       });
     }
   }, [shelfBooks, searchBooks]);
+
+  // Handle initial query from URL
+  useEffect(() => {
+    const urlQuery = searchParams.get('q');
+    if (urlQuery) {
+      setQuery(urlQuery);
+      handleSearch(urlQuery);
+    }
+  }, [searchParams, handleSearch]);
 
   return (
     <div className='search-books'>
