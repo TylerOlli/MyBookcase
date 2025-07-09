@@ -35,14 +35,35 @@ function Search({ onChangeShelf, books: shelfBooks }) {
           <input
             onChange={(e) => handleSearch(e.target.value)}
             type='text'
-            placeholder='Search by title or author'
+            placeholder='Search by title or author...'
             aria-label='Search by title or author'
+            value={query}
           />
         </div>
       </div>
       <div className='search-books-results'>
-        {loading && <div className="loading">Searching books...</div>}
-        {error && <div className="error">{error}</div>}
+        {loading && (
+          <div className="loading" role="status" aria-live="polite">
+            <div className="loading-spinner"></div>
+            Searching books...
+          </div>
+        )}
+        {error && (
+          <div className="error" role="alert" aria-live="assertive">
+            {error}
+          </div>
+        )}
+        {!loading && !error && query && books.length === 0 && (
+          <div className="no-results">
+            <p>No books found for "{query}"</p>
+            <p>Try searching for a different title or author</p>
+          </div>
+        )}
+        {!loading && !error && query && books.length > 0 && (
+          <div className="search-results-info">
+            <p>Found {books.length} book{books.length !== 1 ? 's' : ''} for "{query}"</p>
+          </div>
+        )}
         <ol className='books-grid'>
           {books.map((book) => (
             <Book
