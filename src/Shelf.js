@@ -5,7 +5,7 @@ import "./App.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { getBooksForShelf } from "./utils/bookUtils";
 
-function Shelf({ shelf, books, onChangeShelf, onDragOver, onDragLeave, onDrop, dragOverShelf, onBookDragStart, onBookDragEnd, draggedBook }) {
+function Shelf({ shelf, books, onChangeShelf, onDragOver, onDragLeave, onDrop, dragOverShelf, onBookDragStart, onBookDragEnd, draggedBook, onShowDetails }) {
   const shelfTitle = shelf
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, function(str) {
@@ -70,7 +70,7 @@ function Shelf({ shelf, books, onChangeShelf, onDragOver, onDragLeave, onDrop, d
                   onDragEnd={onBookDragEnd}
                   className={`shelf-book-item ${draggedBook?.id === book.id ? 'dragging' : ''}`}
                 >
-                  <Book onChangeShelf={onChangeShelf} book={book} />
+                  <Book onChangeShelf={onChangeShelf} book={book} onShowDetails={onShowDetails} />
                 </motion.li>
               ))}
             </AnimatePresence>
@@ -99,6 +99,7 @@ Shelf.propTypes = {
   onBookDragStart: PropTypes.func,
   onBookDragEnd: PropTypes.func,
   draggedBook: PropTypes.object,
+  onShowDetails: PropTypes.func,
 };
 
 export default Shelf;

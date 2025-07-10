@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import "./App.css";
 
-const Book = forwardRef(({ book, onChangeShelf }, ref) => {
+const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails }, ref) => {
   const updateBook = (shelf) => {
     onChangeShelf(book, shelf);
   };
@@ -16,8 +16,23 @@ const Book = forwardRef(({ book, onChangeShelf }, ref) => {
     return shelfNames[shelf] || 'Move to...';
   };
 
+  const getShelfIcon = (shelf) => {
+    const icons = {
+      'currentlyReading': '📖',
+      'wantToRead': '📚',
+      'read': '✅',
+      'none': '📋'
+    };
+    return icons[shelf] || '📋';
+  };
+
+  const currentShelf = book.shelf || 'none';
+
   return (
-    <div className='book' ref={ref}>
+    <div 
+      className={`book ${isDragging ? 'dragging' : ''}`}
+      ref={ref}
+    >
       <div className='book-top'>
         <div
           className='book-cover'
@@ -27,35 +42,58 @@ const Book = forwardRef(({ book, onChangeShelf }, ref) => {
             backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ""})`,
           }}
         />
-        <div className='book-shelf-changer'>
-          <label htmlFor={`shelf-select-${book.id}`} className="visually-hidden">
-            Change shelf for {book.title}
-          </label>
-          <select
-            id={`shelf-select-${book.id}`}
-            aria-label={`Change shelf for ${book.title}`}
-            value={book.shelf || 'none'}
-            onChange={(e) => updateBook(e.target.value)}
+      </div>
+      <div className='book-info'>
+        <div className='book-title'>{book.title}</div>
+        <div className='book-authors'>
+          {book.authors ? book.authors.join(', ') : 'Unknown Author'}
+        </div>
+        
+        {/* Quick Action Buttons */}
+        <div className='book-actions'>
+          <button 
+            className="book-details-btn"
+            onClick={() => onShowDetails && onShowDetails(book)}
+            aria-label={`Show details for ${book.title}`}
           >
-            <option value='move' disabled>
-              Move to...
-            </option>
-            <option value='currentlyReading'>Currently Reading</option>
-            <option value='wantToRead'>Want to Read</option>
-            <option value='read'>Read</option>
-            <option value='none'>None</option>
-          </select>
+            Details
+          </button>
+          
+          {/* Current Shelf Status */}
+          {currentShelf !== 'none' && (
+            <div className='book-shelf-badge' data-shelf={currentShelf}>
+              {getShelfDisplayName(currentShelf)}
+            </div>
+          )}
+          
+          <div className="shelf-actions">
+            <button 
+              className={`shelf-action-btn ${currentShelf === 'currentlyReading' ? 'active' : ''}`}
+              onClick={() => updateBook(currentShelf === 'currentlyReading' ? 'none' : 'currentlyReading')}
+              aria-label={currentShelf === 'currentlyReading' ? 'Remove from Currently Reading' : 'Add to Currently Reading'}
+              title="Currently Reading"
+            >
+              📖
+            </button>
+            <button 
+              className={`shelf-action-btn ${currentShelf === 'wantToRead' ? 'active' : ''}`}
+              onClick={() => updateBook(currentShelf === 'wantToRead' ? 'none' : 'wantToRead')}
+              aria-label={currentShelf === 'wantToRead' ? 'Remove from Want to Read' : 'Add to Want to Read'}
+              title="Want to Read"
+            >
+              📚
+            </button>
+            <button 
+              className={`shelf-action-btn ${currentShelf === 'read' ? 'active' : ''}`}
+              onClick={() => updateBook(currentShelf === 'read' ? 'none' : 'read')}
+              aria-label={currentShelf === 'read' ? 'Remove from Read' : 'Add to Read'}
+              title="Read"
+            >
+              ✅
+            </button>
+          </div>
         </div>
       </div>
-      <div className='book-title'>{book.title}</div>
-      <div className='book-authors'>
-        {book.authors ? book.authors.join(', ') : 'Unknown Author'}
-      </div>
-      {book.shelf && book.shelf !== 'none' && (
-        <div className='book-shelf-indicator' data-shelf={book.shelf}>
-          {getShelfDisplayName(book.shelf)}
-        </div>
-      )}
     </div>
   );
 });

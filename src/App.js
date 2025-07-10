@@ -26,6 +26,8 @@ function App() {
   const [hasMoreBooks, setHasMoreBooks] = useState(true);
   const [draggedBook, setDraggedBook] = useState(null);
   const [dragOverShelf, setDragOverShelf] = useState(null);
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     refreshBooks();
@@ -193,7 +195,22 @@ function App() {
     }
   };
 
+  const handleShowDetails = (book) => {
+    setSelectedBook(book);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedBook(null);
+  };
+
   const handleClickOutside = (e) => {
+    // Don't handle clicks if modal is open or if clicking on modal elements
+    if (showModal || e.target.closest('.modal-overlay') || e.target.closest('.modal-content')) {
+      return;
+    }
+    
     if (!e.target.closest('.search-container') && !e.target.closest('.search-dropdown') && !e.target.closest('.browse-all-container')) {
       setShowDropdown(false);
       setIsExpanded(false);
@@ -468,7 +485,7 @@ function App() {
                                     <div className="dropdown-results">
                                       {sortBrowseResults(getDeduplicatedSearchResults()).map((book) => (
                                         <div key={book.id} className="dropdown-book-item">
-                                          <Book onChangeShelf={handleBookSelect} book={book} />
+                                          <Book onChangeShelf={handleBookSelect} book={book} onShowDetails={handleShowDetails} />
                                         </div>
                                       ))}
                                     </div>
@@ -575,7 +592,7 @@ function App() {
                                                                   <div className="browse-results" onScroll={handleBrowseScroll}>
                                     {sortBrowseResults(getDeduplicatedBrowseResults()).map((book) => (
                                       <div key={book.id} className="browse-book-item">
-                                        <Book onChangeShelf={handleBookSelect} book={book} />
+                                        <Book onChangeShelf={handleBookSelect} book={book} onShowDetails={handleShowDetails} />
                                       </div>
                                     ))}
                                   {isLoadingMore && (
@@ -607,6 +624,7 @@ function App() {
                             onBookDragStart={handleBookDragStart}
                             onBookDragEnd={handleBookDragEnd}
                             draggedBook={draggedBook}
+                            onShowDetails={handleShowDetails}
                           />
                           <Shelf
                             shelf={"wantToRead"}
@@ -619,6 +637,7 @@ function App() {
                             onBookDragStart={handleBookDragStart}
                             onBookDragEnd={handleBookDragEnd}
                             draggedBook={draggedBook}
+                            onShowDetails={handleShowDetails}
                           />
                           <Shelf
                             shelf={"read"}
@@ -631,6 +650,7 @@ function App() {
                             onBookDragStart={handleBookDragStart}
                             onBookDragEnd={handleBookDragEnd}
                             draggedBook={draggedBook}
+                            onShowDetails={handleShowDetails}
                           />
                         </div>
                       </div>
@@ -646,7 +666,45 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+      {showModal && selectedBook && (
+        <BookDetailsModal book={selectedBook} onClose={handleCloseModal} />
+      )}
     </>
+  );
+}
+
+// Modal component
+function BookDetailsModal({ book, onClose }) {
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  return (
+    <div className="modal-overlay" role="dialog" aria-modal="true" tabIndex="-1" onClick={handleOverlayClick}>
+      <div className="modal-content">
+        <button className="modal-close" onClick={onClose} aria-label="Close details">&times;</button>
+        <div className="modal-book-title">{book.title}</div>
+        <div className="modal-book-authors">{book.authors ? book.authors.join(', ') : 'Unknown Author'}</div>
+        {book.publisher && <div><b>Publisher:</b> {book.publisher}</div>}
+        {book.publishedDate && <div><b>Published:</b> {book.publishedDate}</div>}
+        {book.pageCount && <div><b>Pages:</b> {book.pageCount}</div>}
+        {book.averageRating && <div><b>Rating:</b> {book.averageRating} ({book.ratingsCount || 0} ratings)</div>}
+        {book.categories && <div><b>Categories:</b> {book.categories.join(', ')}</div>}
+        {book.description && <div className="modal-book-description">{book.description}</div>}
+        {book.industryIdentifiers && book.industryIdentifiers.length > 0 && (
+          <div><b>ISBN:</b> {book.industryIdentifiers.map((id) => `${id.type}: ${id.identifier}`).join(', ')}</div>
+        )}
+        {book.language && <div><b>Language:</b> {book.language.toUpperCase()}</div>}
+        {(book.previewLink || book.infoLink) && (
+          <div className="modal-links">
+            {book.previewLink && <a href={book.previewLink} target="_blank" rel="noopener noreferrer">Preview</a>}
+            {book.infoLink && <a href={book.infoLink} target="_blank" rel="noopener noreferrer">More Info</a>}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
