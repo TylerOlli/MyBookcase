@@ -775,6 +775,25 @@ body {
   max-width: 160px;
 }
 
+.shelf-book-item {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.shelf-book-item:active {
+  cursor: grabbing;
+}
+
+.shelf-book-item.dragging {
+  opacity: 0.5;
+  transform: rotate(5deg) scale(0.95);
+  cursor: grabbing;
+  z-index: 1000;
+}
+
 /* Book Card Styles */
 .book {
   width: 100%;

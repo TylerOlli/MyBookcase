@@ -24,6 +24,8 @@ function App() {
   const [currentSearchIndex, setCurrentSearchIndex] = useState(0);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [hasMoreBooks, setHasMoreBooks] = useState(true);
+  const [draggedBook, setDraggedBook] = useState(null);
+  const [dragOverShelf, setDragOverShelf] = useState(null);
 
   useEffect(() => {
     refreshBooks();
@@ -252,6 +254,86 @@ function App() {
       setSortOrder('asc');
     }
   };
+
+  const handleDragEnd = useCallback(() => {
+    setDraggedBook(null);
+    setDragOverShelf(null);
+  }, []);
+
+  const handleBookDragStart = useCallback((e, book) => {
+    console.log('🚀 BOOK DRAG START:', book.title, 'from shelf:', book.shelf);
+    setDraggedBook(book);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', book.id);
+    e.dataTransfer.setData('application/json', JSON.stringify(book));
+    
+    // Create a custom drag image
+    const dragImage = new Image();
+    dragImage.src = book.imageLinks?.thumbnail || '';
+    e.dataTransfer.setDragImage(dragImage, 25, 25);
+  }, []);
+
+  const handleBookDragEnd = useCallback(() => {
+    setDraggedBook(null);
+    setDragOverShelf(null);
+  }, []);
+
+  // Shelf drag and drop handlers
+  const handleShelfDragOver = useCallback((e, shelf) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    console.log('📍 SHELF DRAG OVER:', shelf);
+    setDragOverShelf(shelf);
+  }, []);
+
+  const handleShelfDragLeave = useCallback((e) => {
+    // Only clear if we're leaving the shelf area completely
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setDragOverShelf(null);
+    }
+  }, []);
+
+  const handleShelfDrop = useCallback((e, shelf) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('🎯 SHELF DROP on shelf:', shelf);
+    
+    // Get the book ID from the data transfer
+    const bookId = e.dataTransfer.getData('text/plain');
+    console.log('📖 Book ID from transfer:', bookId);
+    
+    // Try to get the full book data from JSON
+    let bookToMove = null;
+    try {
+      const bookData = e.dataTransfer.getData('application/json');
+      if (bookData) {
+        bookToMove = JSON.parse(bookData);
+        console.log('✅ Got book from JSON:', bookToMove.title);
+      }
+    } catch (error) {
+      console.log('❌ JSON parse failed:', error);
+    }
+    
+    // If JSON method failed, find the book in the current books array
+    if (!bookToMove) {
+      console.log('🔍 Searching for book in current books...');
+      const currentBook = books.find(book => book.id === bookId);
+      if (currentBook) {
+        bookToMove = currentBook;
+        console.log('✅ Found in current books:', currentBook.title);
+      }
+    }
+    
+    if (bookToMove) {
+      console.log('🎉 Moving book:', bookToMove.title, 'to shelf:', shelf);
+      handleBookSelect(bookToMove, shelf);
+    } else {
+      console.log('❌ Could not find book to move!');
+    }
+    
+    setDraggedBook(null);
+    setDragOverShelf(null);
+  }, [books, handleBookSelect]);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -518,16 +600,37 @@ function App() {
                             shelf={"currentlyReading"}
                             books={books}
                             onChangeShelf={changeShelf}
+                            onDragOver={handleShelfDragOver}
+                            onDragLeave={handleShelfDragLeave}
+                            onDrop={handleShelfDrop}
+                            dragOverShelf={dragOverShelf}
+                            onBookDragStart={handleBookDragStart}
+                            onBookDragEnd={handleBookDragEnd}
+                            draggedBook={draggedBook}
                           />
                           <Shelf
                             shelf={"wantToRead"}
                             books={books}
                             onChangeShelf={changeShelf}
+                            onDragOver={handleShelfDragOver}
+                            onDragLeave={handleShelfDragLeave}
+                            onDrop={handleShelfDrop}
+                            dragOverShelf={dragOverShelf}
+                            onBookDragStart={handleBookDragStart}
+                            onBookDragEnd={handleBookDragEnd}
+                            draggedBook={draggedBook}
                           />
                           <Shelf
                             shelf={"read"}
                             books={books}
                             onChangeShelf={changeShelf}
+                            onDragOver={handleShelfDragOver}
+                            onDragLeave={handleShelfDragLeave}
+                            onDrop={handleShelfDrop}
+                            dragOverShelf={dragOverShelf}
+                            onBookDragStart={handleBookDragStart}
+                            onBookDragEnd={handleBookDragEnd}
+                            draggedBook={draggedBook}
                           />
                         </div>
                       </div>
