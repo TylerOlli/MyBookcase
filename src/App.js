@@ -625,7 +625,7 @@ function App() {
                                                                   <div className="browse-results" onScroll={handleBrowseScroll}>
                                     {sortBrowseResults(getDeduplicatedBrowseResults()).map((book) => (
                                       <div key={book.id} className="browse-book-item">
-                                        <Book onChangeShelf={handleBookSelect} book={book} onShowDetails={handleShowDetails} />
+                                        <Book onChangeShelf={handleBookSelect} book={book} onShowDetails={handleShowDetails} isBrowseView={true} />
                                       </div>
                                     ))}
                                   {isLoadingMore && (

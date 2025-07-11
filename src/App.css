@@ -483,6 +483,7 @@ body {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
   padding-bottom: 2rem;
+  overflow: visible !important;
 }
 
 .load-more-indicator {
@@ -509,6 +510,7 @@ body {
 .browse-book-item {
   display: flex;
   justify-content: center;
+  overflow: visible !important;
 }
 
 .browse-book-item .book {
@@ -1266,7 +1268,7 @@ body {
   border-radius: 4px;
   font-size: 0.75rem;
   white-space: nowrap;
-  z-index: 1000;
+  z-index: 9999;
   margin-bottom: 0.5rem;
   pointer-events: none;
 }
@@ -1281,7 +1283,10 @@ body {
   border-top-color: rgba(0, 0, 0, 0.8);
   margin-bottom: 0.1rem;
   pointer-events: none;
+  z-index: 9999;
 }
+
+
 
 .shelf-action-btn.active {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import "./App.css";
 
-const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails }, ref) => {
+const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails, isBrowseView }, ref) => {
   const updateBook = (shelf) => {
     onChangeShelf(book, shelf);
   };
@@ -32,8 +32,8 @@ const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails }, ref
       className={`book ${isDragging ? 'dragging' : ''}`}
       ref={ref}
     >
-      {/* Remove Button (only if on a shelf) */}
-      {currentShelf !== 'none' && (
+      {/* Remove Button (only if on a shelf and not in browse view) */}
+      {currentShelf !== 'none' && !isBrowseView && (
         <button
           className="remove-book-btn top-right"
           onClick={() => updateBook('none')}
