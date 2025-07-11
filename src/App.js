@@ -5,9 +5,12 @@ import "./App.css";
 import Shelf from "./Shelf";
 import Search from "./Search";
 import Book from "./Book";
+import Auth from "./components/Auth";
+import { useAuth } from "./contexts/AuthContext";
 import { useBooksApi } from "./hooks/useBooksApi";
 
 function App() {
+  const { user, loading: authLoading, signOut } = useAuth();
   const { books, initialLoading, error, refreshBooks, changeShelf, searchBooks } = useBooksApi();
   const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
@@ -357,6 +360,21 @@ function App() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
+  // Show loading screen while auth is initializing
+  if (authLoading) {
+    return (
+      <div className="loading-screen">
+        <div className="loading-spinner"></div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  // Show auth screen if user is not authenticated
+  if (!user) {
+    return <Auth />;
+  }
+
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
@@ -378,7 +396,19 @@ function App() {
                     <div className='app'>
                       <div className='list-books'>
                         <div className='list-books-title'>
-                          <h1>MyBookcase</h1>
+                          <div className="header-content">
+                            <h1>MyBookcase</h1>
+                            <div className="user-info">
+                              <span className="user-email">{user.email}</span>
+                              <button 
+                                onClick={signOut} 
+                                className="sign-out-button"
+                                aria-label="Sign out"
+                              >
+                                Sign Out
+                              </button>
+                            </div>
+                          </div>
                         </div>
                         <div className='search-container'>
                           <div className='search-actions'>
