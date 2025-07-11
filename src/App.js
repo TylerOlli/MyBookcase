@@ -8,6 +8,13 @@ import Book from "./Book";
 import Auth from "./components/Auth";
 import { useAuth } from "./contexts/AuthContext";
 import { useBooksApi } from "./hooks/useBooksApi";
+import { search as googleBooksSearch } from "./BooksAPI";
+
+const GOOGLE_BOOKS_CATEGORIES = [
+  "Fiction", "Nonfiction", "Science", "History", "Biography", "Children", "Comics",
+  "Computers", "Cooking", "Education", "Health", "Mathematics", "Medical", "Poetry",
+  "Psychology", "Religion", "Romance", "Science Fiction", "Self-Help", "Sports", "Travel"
+];
 
 function App() {
   const { user, loading: authLoading, signOut } = useAuth();
@@ -21,8 +28,8 @@ function App() {
   const [showBrowseAll, setShowBrowseAll] = useState(false);
   const [browseResults, setBrowseResults] = useState([]);
   const [isBrowsing, setIsBrowsing] = useState(false);
-  const [sortBy, setSortBy] = useState('title');
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [sortBy, setSortBy] = useState('popularity');
+  const [sortOrder, setSortOrder] = useState('desc');
   const [searchTerms, setSearchTerms] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']);
   const [currentSearchIndex, setCurrentSearchIndex] = useState(0);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -31,6 +38,12 @@ function App() {
   const [dragOverShelf, setDragOverShelf] = useState(null);
   const [selectedBook, setSelectedBook] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [categoryBooks, setCategoryBooks] = useState([]);
+  const [isCategoryLoading, setIsCategoryLoading] = useState(false);
+  const [categoryStartIndex, setCategoryStartIndex] = useState(0);
+  const [hasMoreCategoryBooks, setHasMoreCategoryBooks] = useState(true);
+  const [isLoadingMoreCategory, setIsLoadingMoreCategory] = useState(false);
 
   useEffect(() => {
     refreshBooks();
@@ -243,6 +256,55 @@ function App() {
     }
   }, [isLoadingMore, hasMoreBooks, loadMoreBooks]);
 
+  // Load more books for the selected category
+  const loadMoreCategoryBooks = useCallback(async () => {
+    if (!selectedCategory || isLoadingMoreCategory || !hasMoreCategoryBooks) {
+      return;
+    }
+
+    setIsLoadingMoreCategory(true);
+    
+    try {
+      const newResults = await googleBooksSearch(`subject:${selectedCategory}`, 40, categoryStartIndex, 'relevance');
+      
+      if (newResults.length === 0) {
+        // Try a few more pages before giving up (Google Books API can be inconsistent)
+        setCategoryStartIndex(prev => prev + 40);
+        
+        // Only give up after trying 3 consecutive empty pages
+        if (categoryStartIndex > 400) { // After trying 10+ pages
+          setHasMoreCategoryBooks(false);
+        }
+      } else {
+        // Remove duplicates from existing category books
+        const existingIds = new Set(categoryBooks.map(book => book.id));
+        const uniqueNewResults = newResults.filter(book => !existingIds.has(book.id));
+        
+        if (uniqueNewResults.length > 0) {
+          setCategoryBooks(prev => [...prev, ...uniqueNewResults]);
+          setCategoryStartIndex(prev => prev + 40);
+        } else {
+          // If all results were duplicates, try the next page
+          setCategoryStartIndex(prev => prev + 40);
+          // Don't set hasMoreCategoryBooks to false yet, try a few more pages
+          if (categoryStartIndex > 400) { // Only give up after trying 10+ pages
+            setHasMoreCategoryBooks(false);
+          }
+        }
+      }
+    } catch (error) {
+      console.error('❌ Load more category error:', error);
+      setHasMoreCategoryBooks(false);
+    } finally {
+      setIsLoadingMoreCategory(false);
+    }
+  }, [selectedCategory, isLoadingMoreCategory, hasMoreCategoryBooks, categoryStartIndex, categoryBooks]);
+
+  const handleCategoryScroll = useCallback((e) => {
+    // Removed automatic scroll loading to preserve API usage
+    // Users will manually click "Load More" button instead
+  }, []);
+
   const sortBrowseResults = useCallback((results) => {
     if (!results || results.length === 0) return results;
     
@@ -252,17 +314,21 @@ function App() {
       if (sortBy === 'title') {
         aValue = (a.title || '').toLowerCase();
         bValue = (b.title || '').toLowerCase();
+        return sortOrder === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
       } else if (sortBy === 'author') {
         aValue = (a.authors && a.authors.length > 0 ? a.authors[0] : '').toLowerCase();
         bValue = (b.authors && b.authors.length > 0 ? b.authors[0] : '').toLowerCase();
+        return sortOrder === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+      } else if (sortBy === 'rating') {
+        aValue = a.averageRating || 0;
+        bValue = b.averageRating || 0;
+        return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
+      } else if (sortBy === 'popularity') {
+        aValue = a.ratingsCount || 0;
+        bValue = b.ratingsCount || 0;
+        return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
       } else {
         return 0;
-      }
-      
-      if (sortOrder === 'asc') {
-        return aValue.localeCompare(bValue);
-      } else {
-        return bValue.localeCompare(aValue);
       }
     });
   }, [sortBy, sortOrder]);
@@ -357,6 +423,23 @@ function App() {
     setDraggedBook(null);
     setDragOverShelf(null);
   }, [books, handleBookSelect]);
+
+  // Handler for category pill click
+  const handleCategoryClick = async (category) => {
+    setSelectedCategory(category);
+    setIsCategoryLoading(true);
+    setCategoryStartIndex(0);
+    setHasMoreCategoryBooks(true);
+    try {
+      const results = await googleBooksSearch(`subject:${category}`, 40, 0, 'relevance');
+      setCategoryBooks(results);
+      setCategoryStartIndex(40); // Next page starts at index 40
+    } catch (error) {
+      setCategoryBooks([]);
+    } finally {
+      setIsCategoryLoading(false);
+    }
+  };
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -538,11 +621,21 @@ function App() {
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -10 }}
                               transition={{ duration: 0.2 }}
+                              onScroll={handleCategoryScroll}
                             >
                               <div className="browse-all-header">
                                 <div className="browse-header-left">
                                   <h2>Browse All Books</h2>
-                                  {browseResults.length > 0 && (
+                                  {selectedCategory ? (
+                                    <div className="browse-progress">
+                                      <span className="books-count">{categoryBooks.length} books loaded for {selectedCategory}</span>
+                                      {hasMoreCategoryBooks && (
+                                        <span className="loading-status">
+                                          Click "Load More" to get additional books
+                                        </span>
+                                      )}
+                                    </div>
+                                  ) : browseResults.length > 0 && (
                                     <div className="browse-progress">
                                       <span className="books-count">{getDeduplicatedBrowseResults().length} books loaded</span>
                                       {hasMoreBooks && (
@@ -600,6 +693,50 @@ function App() {
                                         </svg>
                                       )}
                                     </button>
+                                    <button 
+                                      className={`sort-button ${sortBy === 'rating' ? 'active' : ''}`}
+                                      onClick={() => handleSortChange('rating')}
+                                      aria-label={`Sort by rating ${sortBy === 'rating' && sortOrder === 'asc' ? 'descending' : 'ascending'}`}
+                                    >
+                                      Rating
+                                      {sortBy === 'rating' && (
+                                        <svg 
+                                          width="12" 
+                                          height="12" 
+                                          viewBox="0 0 24 24" 
+                                          fill="none" 
+                                          stroke="currentColor" 
+                                          strokeWidth="2" 
+                                          strokeLinecap="round" 
+                                          strokeLinejoin="round"
+                                          style={{ transform: sortOrder === 'desc' ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }}
+                                        >
+                                          <polyline points="6,9 12,15 18,9"></polyline>
+                                        </svg>
+                                      )}
+                                    </button>
+                                    <button 
+                                      className={`sort-button ${sortBy === 'popularity' ? 'active' : ''}`}
+                                      onClick={() => handleSortChange('popularity')}
+                                      aria-label={`Sort by popularity ${sortBy === 'popularity' && sortOrder === 'asc' ? 'descending' : 'ascending'}`}
+                                    >
+                                      Popularity
+                                      {sortBy === 'popularity' && (
+                                        <svg 
+                                          width="12" 
+                                          height="12" 
+                                          viewBox="0 0 24 24" 
+                                          fill="none" 
+                                          stroke="currentColor" 
+                                          strokeWidth="2" 
+                                          strokeLinecap="round" 
+                                          strokeLinejoin="round"
+                                          style={{ transform: sortOrder === 'desc' ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }}
+                                        >
+                                          <polyline points="6,9 12,15 18,9"></polyline>
+                                        </svg>
+                                      )}
+                                    </button>
                                   </div>
                                   <button 
                                     className="close-browse"
@@ -621,23 +758,57 @@ function App() {
                                 </div>
                               )}
                               
-                              {!isBrowsing && browseResults.length > 0 && (
-                                                                  <div className="browse-results" onScroll={handleBrowseScroll}>
-                                    {sortBrowseResults(getDeduplicatedBrowseResults()).map((book) => (
-                                      <div key={book.id} className="browse-book-item">
-                                        <Book onChangeShelf={handleBookSelect} book={book} onShowDetails={handleShowDetails} isBrowseView={true} />
-                                      </div>
-                                    ))}
-                                  {isLoadingMore && (
-                                    <div className="load-more-indicator">
-                                      <div className="loading-spinner"></div>
-                                      <span>Loading more books...</span>
-                                    </div>
-                                  )}
-                                  {!hasMoreBooks && browseResults.length > 0 && (
-                                    <div className="no-more-books">
-                                      <span>No more books to load</span>
-                                    </div>
+                              {/* Category pill buttons */}
+                              {!isBrowsing && (
+                                <div className="browse-category-pills">
+                                  {GOOGLE_BOOKS_CATEGORIES.map(category => (
+                                    <button
+                                      key={category}
+                                      className={`category-pill${selectedCategory === category ? ' selected' : ''}`}
+                                      onClick={() => handleCategoryClick(category)}
+                                    >
+                                      {category}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                              
+                              {/* Books for selected category */}
+                              {!isBrowsing && selectedCategory && (
+                                <div className="browse-results">
+                                  {isCategoryLoading ? (
+                                    <div className="browse-loading"><div className="loading-spinner"></div>Loading books...</div>
+                                  ) : (
+                                    <>
+                                      {sortBrowseResults(categoryBooks).map((book) => (
+                                        <div key={book.id} className="browse-book-item">
+                                          <Book onChangeShelf={handleBookSelect} book={book} onShowDetails={handleShowDetails} isBrowseView={true} />
+                                        </div>
+                                      ))}
+                                      {hasMoreCategoryBooks && (
+                                        <div className="load-more-section">
+                                          <button 
+                                            className="load-more-button"
+                                            onClick={loadMoreCategoryBooks}
+                                            disabled={isLoadingMoreCategory}
+                                          >
+                                            {isLoadingMoreCategory ? (
+                                              <>
+                                                <div className="loading-spinner"></div>
+                                                Loading...
+                                              </>
+                                            ) : (
+                                              'Load More Books'
+                                            )}
+                                          </button>
+                                        </div>
+                                      )}
+                                      {!hasMoreCategoryBooks && categoryBooks.length > 0 && (
+                                        <div className="no-more-books">
+                                          All available books loaded ({categoryBooks.length} total)
+                                        </div>
+                                      )}
+                                    </>
                                   )}
                                 </div>
                               )}
@@ -714,16 +885,36 @@ function BookDetailsModal({ book, onClose }) {
     }
   };
 
+  // Helper to render stars for averageRating
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (rating >= i) {
+        stars.push(<span key={i} style={{color: '#fbbf24', fontSize: '1.1em'}}>&#9733;</span>); // full star
+      } else if (rating > i - 1) {
+        stars.push(<span key={i} style={{color: '#fbbf24', fontSize: '1.1em'}}>&#189;</span>); // half star (optional)
+      } else {
+        stars.push(<span key={i} style={{color: '#e5e7eb', fontSize: '1.1em'}}>&#9733;</span>); // empty star
+      }
+    }
+    return stars;
+  };
+
   return (
     <div className="modal-overlay" role="dialog" aria-modal="true" tabIndex="-1" onClick={handleOverlayClick}>
       <div className="modal-content">
         <button className="modal-close" onClick={onClose} aria-label="Close details">&times;</button>
         <div className="modal-book-title">{book.title}</div>
+        {book.subtitle && <div className="modal-book-subtitle">{book.subtitle}</div>}
         <div className="modal-book-authors">{book.authors ? book.authors.join(', ') : 'Unknown Author'}</div>
         {book.publisher && <div><b>Publisher:</b> {book.publisher}</div>}
         {book.publishedDate && <div><b>Published:</b> {book.publishedDate}</div>}
         {book.pageCount && <div><b>Pages:</b> {book.pageCount}</div>}
-        {book.averageRating && <div><b>Rating:</b> {book.averageRating} ({book.ratingsCount || 0} ratings)</div>}
+        {book.averageRating && (
+          <div className="modal-book-rating">
+            <b>Rating:</b> {renderStars(book.averageRating)} <span style={{marginLeft: 6}}>{book.averageRating} / 5</span> {book.ratingsCount && <span>({book.ratingsCount} ratings)</span>}
+          </div>
+        )}
         {book.categories && <div><b>Categories:</b> {book.categories.join(', ')}</div>}
         {book.description && <div className="modal-book-description">{book.description}</div>}
         {book.industryIdentifiers && book.industryIdentifiers.length > 0 && (
