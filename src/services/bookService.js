@@ -13,7 +13,14 @@ export const bookService = {
       .order('created_at', { ascending: false })
 
     if (error) throw error
-    return data
+    
+    console.log('getUserBooks - raw data from database:', data.map(book => ({ id: book.id, book_id: book.book_id, title: book.title })));
+    
+    // Normalize the data structure to match the expected format
+    return data.map(book => ({
+      ...book,
+      imageLinks: book.image_url ? { thumbnail: book.image_url } : null
+    }))
   },
 
   // Add a book to user's collection
@@ -44,7 +51,12 @@ export const bookService = {
       .single()
 
     if (error) throw error
-    return data
+    
+    // Normalize the returned data
+    return {
+      ...data,
+      imageLinks: data.image_url ? { thumbnail: data.image_url } : null
+    }
   },
 
   // Update book shelf
@@ -61,7 +73,12 @@ export const bookService = {
       .single()
 
     if (error) throw error
-    return data
+    
+    // Normalize the returned data
+    return {
+      ...data,
+      imageLinks: data.image_url ? { thumbnail: data.image_url } : null
+    }
   },
 
   // Remove book from user's collection
@@ -69,13 +86,29 @@ export const bookService = {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) throw new Error('User not authenticated')
 
+    console.log('removeBook called with bookId:', bookId, 'for user:', user.id);
+
+    // First, let's see what books exist with this book_id
+    const { data: existingBooks, error: selectError } = await supabase
+      .from('user_books')
+      .select('id, book_id, title')
+      .eq('user_id', user.id)
+      .eq('book_id', bookId)
+
+    console.log('Books found with book_id:', bookId, ':', existingBooks);
+
     const { error } = await supabase
       .from('user_books')
       .delete()
       .eq('user_id', user.id)
       .eq('book_id', bookId)
 
-    if (error) throw error
+    if (error) {
+      console.error('Error removing book:', error);
+      throw error;
+    }
+    
+    console.log('Book removed successfully');
     return true
   },
 
@@ -92,7 +125,12 @@ export const bookService = {
       .order('created_at', { ascending: false })
 
     if (error) throw error
-    return data
+    
+    // Normalize the data structure to match the expected format
+    return data.map(book => ({
+      ...book,
+      imageLinks: book.image_url ? { thumbnail: book.image_url } : null
+    }))
   },
 
   // Check if book exists in user's collection

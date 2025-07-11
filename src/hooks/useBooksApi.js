@@ -26,25 +26,46 @@ export function useBooksApi() {
     setActionLoading(true);
     setError(null);
     try {
+      // Use book_id (Google Books API ID) for database operations, not id (Supabase UUID)
+      const bookId = book.book_id || book.id;
+      console.log('changeShelf called with:', { bookId, shelf, bookTitle: book.title });
+      
       if (shelf === 'none') {
-        // Remove book from user's collection
-        await bookService.removeBook(book.id);
-        setBooks((prevBooks) => prevBooks.filter((b) => b.id !== book.id));
+        // Remove book from user's collection - update UI immediately for responsiveness
+        console.log('Removing book:', bookId, book.title);
+        
+        // Update local state immediately for instant feedback
+        setBooks((prevBooks) => {
+          const filtered = prevBooks.filter((b) => (b.book_id || b.id) !== bookId);
+          console.log('Books after removal:', filtered.length);
+          return filtered;
+        });
+        
+        // Then handle the database operation in the background
+        try {
+          await bookService.removeBook(bookId);
+        } catch (dbError) {
+          console.error('Database removal failed, reverting UI:', dbError);
+          // Revert the UI change if database operation fails
+          setBooks((prevBooks) => [...prevBooks, book]);
+          setError("Failed to remove book from database.");
+        }
       } else {
         // Check if book exists in user's collection
-        const existingShelf = await bookService.bookExists(book.id);
-        
+        const existingShelf = await bookService.bookExists(bookId);
+        let updatedBook;
         if (existingShelf) {
           // Update existing book
-          await bookService.updateBookShelf(book.id, shelf);
-          setBooks((prevBooks) => 
-            prevBooks.map((b) => b.id === book.id ? { ...b, shelf } : b)
-          );
+          updatedBook = await bookService.updateBookShelf(bookId, shelf);
         } else {
           // Add new book to collection
-          const newBook = await bookService.addBook({ ...book, shelf });
-          setBooks((prevBooks) => [...prevBooks, newBook]);
+          updatedBook = await bookService.addBook({ ...book, shelf });
         }
+        // Always update in place, never duplicate
+        setBooks((prevBooks) => {
+          const filtered = prevBooks.filter((b) => (b.book_id || b.id) !== bookId);
+          return [...filtered, updatedBook];
+        });
       }
       setActionLoading(false);
     } catch (err) {

@@ -120,11 +120,12 @@ function App() {
   const mergeAndDeduplicateBooks = useCallback((newBooks, existingBooks) => {
     if (!newBooks || newBooks.length === 0) return [];
     
-    // Create a map of existing books by ID for quick lookup
+    // Create a map of existing books by book_id (Google Books API ID) for quick lookup
     const existingBooksMap = new Map();
     if (existingBooks && existingBooks.length > 0) {
       existingBooks.forEach(book => {
-        existingBooksMap.set(book.id, book);
+        const bookId = book.book_id || book.id;
+        existingBooksMap.set(bookId, book);
       });
     }
     
@@ -187,14 +188,16 @@ function App() {
 
   const handleBookSelect = (book, shelf) => {
     changeShelf(book, shelf);
+    const bookId = book.book_id || book.id;
+    
     // Remove from search results if it's now on a shelf
     if (shelf !== 'none') {
-      setSearchResults(prev => prev.filter(b => b.id !== book.id));
-      setBrowseResults(prev => prev.filter(b => b.id !== book.id));
+      setSearchResults(prev => prev.filter(b => (b.book_id || b.id) !== bookId));
+      setBrowseResults(prev => prev.filter(b => (b.book_id || b.id) !== bookId));
     } else {
       // If book is removed from shelf, update the book in results to show no shelf
-      setSearchResults(prev => prev.map(b => b.id === book.id ? { ...b, shelf: 'none' } : b));
-      setBrowseResults(prev => prev.map(b => b.id === book.id ? { ...b, shelf: 'none' } : b));
+      setSearchResults(prev => prev.map(b => (b.book_id || b.id) === bookId ? { ...b, shelf: 'none' } : b));
+      setBrowseResults(prev => prev.map(b => (b.book_id || b.id) === bookId ? { ...b, shelf: 'none' } : b));
     }
   };
 

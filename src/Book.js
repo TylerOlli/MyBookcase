@@ -10,8 +10,7 @@ const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails }, ref
     const shelfNames = {
       'currentlyReading': 'Currently Reading',
       'wantToRead': 'Want to Read',
-      'read': 'Read',
-      'none': 'None'
+      'read': 'Read'
     };
     return shelfNames[shelf] || 'Move to...';
   };
@@ -33,13 +32,24 @@ const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails }, ref
       className={`book ${isDragging ? 'dragging' : ''}`}
       ref={ref}
     >
+      {/* Remove Button (only if on a shelf) */}
+      {currentShelf !== 'none' && (
+        <button
+          className="remove-book-btn top-right"
+          onClick={() => updateBook('none')}
+          aria-label={`Remove ${book.title} from shelf`}
+          title="Remove from shelf"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+        </button>
+      )}
       <div className='book-top'>
         <div
           className='book-cover'
           style={{
             width: '100%',
             height: '100%',
-            backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ""})`,
+            backgroundImage: `url(${book.imageLinks?.thumbnail || book.image_url || ""})`,
           }}
         />
       </div>
@@ -48,7 +58,6 @@ const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails }, ref
         <div className='book-authors'>
           {book.authors ? book.authors.join(', ') : 'Unknown Author'}
         </div>
-        
         {/* Quick Action Buttons */}
         <div className='book-actions'>
           <button 
@@ -58,14 +67,6 @@ const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails }, ref
           >
             Details
           </button>
-          
-          {/* Current Shelf Status */}
-          {currentShelf !== 'none' && (
-            <div className='book-shelf-badge' data-shelf={currentShelf}>
-              {getShelfDisplayName(currentShelf)}
-            </div>
-          )}
-          
           <div className="shelf-actions">
             <button 
               className={`shelf-action-btn ${currentShelf === 'currentlyReading' ? 'active' : ''}`}
