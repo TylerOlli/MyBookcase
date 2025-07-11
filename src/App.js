@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Route, Link, Routes, useLocation } from "react-router-dom";
+import { Route, Link, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import "./App.css";
 import Shelf from "./Shelf";
@@ -9,6 +9,7 @@ import Auth from "./components/Auth";
 import { useAuth } from "./contexts/AuthContext";
 import { useBooksApi } from "./hooks/useBooksApi";
 import { search as googleBooksSearch } from "./BooksAPI";
+import Explore from "./Explore";
 
 const GOOGLE_BOOKS_CATEGORIES = [
   "Fiction", "Nonfiction", "Science", "History", "Biography", "Children", "Comics",
@@ -20,6 +21,7 @@ function App() {
   const { user, loading: authLoading, signOut } = useAuth();
   const { books, initialLoading, error, refreshBooks, changeShelf, searchBooks } = useBooksApi();
   const location = useLocation();
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -519,8 +521,8 @@ function App() {
                             </form>
                             <button 
                               className='browse-all-button'
-                              onClick={handleBrowseAll}
-                              aria-label='Browse all books'
+                              onClick={() => navigate('/explore')}
+                              aria-label='Explore books'
                             >
                               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -529,7 +531,7 @@ function App() {
                                 <line x1="9" y1="15" x2="9" y2="15"></line>
                                 <line x1="15" y1="15" x2="15" y2="15"></line>
                               </svg>
-                              Browse All
+                              Explore
                             </button>
                           </div>
                           
@@ -861,6 +863,7 @@ function App() {
                     </div>
                   }
                 />
+                <Route path='/explore' element={<Explore />} />
                 <Route
                   path='/search'
                   element={<Search onChangeShelf={changeShelf} books={books} />}
