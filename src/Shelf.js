@@ -5,13 +5,15 @@ import "./App.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { getBooksForShelf } from "./utils/bookUtils";
 
-function Shelf({ shelf, books, onChangeShelf, onDragOver, onDragLeave, onDrop, dragOverShelf, onBookDragStart, onBookDragEnd, draggedBook, onShowDetails }) {
+function Shelf({ shelf, books, shelfBooks, onChangeShelf, onDragOver, onDragLeave, onDrop, dragOverShelf, onBookDragStart, onBookDragEnd, draggedBook, onShowDetails }) {
   const shelfTitle = shelf
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, function(str) {
       return str.toUpperCase();
     });
-  const shelfBooks = getBooksForShelf(books, shelf);
+  
+  // Use provided shelfBooks if available (for custom shelves), otherwise filter from books array
+  const displayBooks = shelfBooks || getBooksForShelf(books, shelf);
 
   const getShelfIcon = (shelfName) => {
     const icons = {
@@ -41,10 +43,10 @@ function Shelf({ shelf, books, onChangeShelf, onDragOver, onDragLeave, onDrop, d
       <h2 className='bookshelf-title'>
         <span className="shelf-icon">{getShelfIcon(shelf)}</span>
         {shelfTitle}
-        <span className="book-count">({shelfBooks.length})</span>
+        <span className="book-count">({displayBooks.length})</span>
       </h2>
       <div className='bookshelf-books'>
-        {shelfBooks.length === 0 ? (
+        {displayBooks.length === 0 ? (
           <motion.div
             className="empty-shelf"
             initial={{ opacity: 0 }}
@@ -57,7 +59,7 @@ function Shelf({ shelf, books, onChangeShelf, onDragOver, onDragLeave, onDrop, d
         ) : (
           <ol className='books-grid'>
             <AnimatePresence>
-              {shelfBooks.map((book) => (
+              {displayBooks.map((book) => (
                 <motion.li
                   layout
                   key={book.id}
@@ -91,6 +93,7 @@ function Shelf({ shelf, books, onChangeShelf, onDragOver, onDragLeave, onDrop, d
 Shelf.propTypes = {
   shelf: PropTypes.string.isRequired,
   books: PropTypes.array.isRequired,
+  shelfBooks: PropTypes.array, // New prop for direct book array (custom shelves)
   onChangeShelf: PropTypes.func.isRequired,
   onDragOver: PropTypes.func,
   onDragLeave: PropTypes.func,

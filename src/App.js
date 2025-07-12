@@ -13,6 +13,7 @@ import Explore from "./Explore";
 import Home from "./Home";
 import MyShelves from "./MyShelves";
 import NavBar from "./NavBar";
+import NewShelf from "./NewShelf";
 
 const GOOGLE_BOOKS_CATEGORIES = [
   "Fiction", "Nonfiction", "Science", "History", "Biography", "Children", "Comics",
@@ -498,6 +499,7 @@ function App() {
                     handleShowDetails={handleShowDetails}
                   />
                 } />
+                <Route path='/newshelf' element={<NewShelf />} />
                 <Route
                   path='/search'
                   element={<Search onChangeShelf={changeShelf} books={books} />}

@@ -25,6 +25,9 @@ function NavBar() {
           <NavLink to="/explore" className={({ isActive }) => isActive ? 'navbar-link active' : 'navbar-link'} style={({ isActive }) => ({ color: isActive ? '#764ba2' : '#64748b', fontWeight: 600, textDecoration: 'none', fontSize: '1.05rem', padding: '0.5rem 1rem', borderRadius: 8, background: isActive ? 'linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%)' : 'none', transition: 'all 0.2s' })}>
             Explore
           </NavLink>
+          <NavLink to="/newshelf" className={({ isActive }) => isActive ? 'navbar-link active' : 'navbar-link'} style={({ isActive }) => ({ color: isActive ? '#764ba2' : '#64748b', fontWeight: 600, textDecoration: 'none', fontSize: '1.05rem', padding: '0.5rem 1rem', borderRadius: 8, background: isActive ? 'linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%)' : 'none', transition: 'all 0.2s' })}>
+            New Shelf
+          </NavLink>
         </div>
       </div>
     </nav>
