@@ -122,7 +122,6 @@ function Home({ books, onChangeShelf, handleShowDetails }) {
               background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
               borderRadius: '16px',
               padding: '2rem',
-              border: '1px solid #e2e8f0',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
             }}>
               <Shelf

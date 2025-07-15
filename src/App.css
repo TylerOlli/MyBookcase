@@ -816,13 +816,14 @@ body {
 
 /* Books Grid */
 .books-grid {
-  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: stretch;
+  justify-content: space-evenly;
+  list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 2rem;
-  justify-items: center;
 }
 
 .books-grid li {
@@ -853,21 +854,27 @@ body {
 
 /* Book Card Styles */
 .book {
-  width: 100%;
-  min-height: 200px;
-  margin: 0;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  height: 100%;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
   border: 1px solid rgba(226, 232, 240, 0.6);
+  position: relative;
+  margin: 0;
+  overflow: visible;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .book-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  min-height: 0;
   padding: 0.5rem 1rem 1rem 1rem;
   margin-bottom: 0;
 }
@@ -890,7 +897,6 @@ body {
 }
 
 .book-top {
-  position: relative;
   height: 200px;
   display: flex;
   align-items: center;
@@ -912,6 +918,9 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .book-cover::after {
@@ -1197,10 +1206,10 @@ body {
 
 /* Book Actions */
 .book-actions {
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 
 .book-details-btn {

@@ -106,7 +106,7 @@ const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails, isBro
           {book.authors ? book.authors.join(', ') : 'Unknown Author'}
         </div>
         {/* Quick Action Buttons */}
-        <div className='book-actions'>
+        <div className='book-actions' style={{ marginTop: 'auto' }}>
           <button 
             className="book-details-btn"
             onClick={() => onShowDetails && onShowDetails(book)}
