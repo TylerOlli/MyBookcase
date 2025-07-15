@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from "react";
 import "./App.css";
 
-const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails, isBrowseView }, ref) => {
+const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails, isBrowseView, isFeatured }, ref) => {
   const [imageError, setImageError] = useState(false);
   
   const updateBook = (shelf) => {
@@ -55,8 +55,8 @@ const Book = forwardRef(({ book, onChangeShelf, isDragging, onShowDetails, isBro
       className={`book ${isDragging ? 'dragging' : ''}`}
       ref={ref}
     >
-      {/* Remove Button (only if on a shelf and not in browse view) */}
-      {currentShelf !== 'none' && !isBrowseView && (
+      {/* Remove Button (only if on a shelf, not in browse view, and not a featured book) */}
+      {currentShelf !== 'none' && !isBrowseView && !isFeatured && (
         <button
           className="remove-book-btn top-right"
           onClick={() => updateBook('none')}

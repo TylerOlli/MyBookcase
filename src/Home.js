@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Shelf from "./Shelf";
 import featuredShelvesData from "./data/featuredShelves.json";
 
-function Home() {
+function Home({ books, onChangeShelf, handleShowDetails }) {
   // Get featured shelves data from JSON file
   const { featuredShelves } = featuredShelvesData;
 
@@ -25,16 +25,20 @@ function Home() {
     return colors[colorIndex];
   };
 
-  // Process books to force fallback covers since the URLs don't work
+  // Merge user's real shelf status into each featured book
   const processedShelves = featuredShelves.map(shelf => ({
     ...shelf,
-    books: shelf.books.map(book => ({
-      ...book,
-      // Force fallback covers since the mock URLs don't work
-      imageLinks: { thumbnail: null },
-      // Add a custom cover style for books without images
-      customCover: getPlaceholderCover(book.title)
-    }))
+    books: shelf.books.map(book => {
+      // Find if this book exists in user's real books (by Google Books ID)
+      const userBook = books.find(
+        b => (b.book_id || b.id) === (book.id || book.book_id)
+      );
+      return {
+        ...book,
+        ...(book.imageLinks && book.imageLinks.thumbnail ? {} : { customCover: getPlaceholderCover(book.title) }),
+        ...(userBook ? { shelf: userBook.shelf } : {})
+      };
+    })
   }));
 
   return (
@@ -123,10 +127,10 @@ function Home() {
             }}>
               <Shelf
                 shelf={shelf.name}
-                books={[]}
+                books={books}
                 shelfBooks={shelf.books}
-                onChangeShelf={() => {}}
-                onShowDetails={() => {}}
+                onChangeShelf={onChangeShelf}
+                onShowDetails={handleShowDetails}
                 onBookDragStart={() => {}}
                 onBookDragEnd={() => {}}
                 onDragOver={() => {}}

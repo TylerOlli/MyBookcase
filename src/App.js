@@ -483,7 +483,13 @@ function App() {
             {error && <div className="error" role="alert" aria-live="assertive">{error}</div>}
             {!error && (
               <Routes location={location}>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={
+                  <Home
+                    books={books}
+                    onChangeShelf={changeShelf}
+                    handleShowDetails={handleShowDetails}
+                  />
+                } />
                 <Route path='/explore' element={<Explore />} />
                 <Route path='/myshelves' element={
                   <MyShelves

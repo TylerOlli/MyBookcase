@@ -4,49 +4,649 @@
       "id": 1,
       "name": "Summer Reading List",
       "books": [
-        { "id": "summer1", "title": "The Great Gatsby", "authors": ["F. Scott Fitzgerald"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=ueSFAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1250 },
-        { "id": "summer2", "title": "To Kill a Mockingbird", "authors": ["Harper Lee"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.5, "ratingsCount": 2100 },
-        { "id": "summer3", "title": "The Alchemist", "authors": ["Paulo Coelho"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.1, "ratingsCount": 890 },
-        { "id": "summer4", "title": "Where the Crawdads Sing", "authors": ["Delia Owens"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=2oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.3, "ratingsCount": 980 },
-        { "id": "summer5", "title": "Normal People", "authors": ["Sally Rooney"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=3oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.0, "ratingsCount": 760 },
-        { "id": "summer6", "title": "Educated", "authors": ["Tara Westover"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=4oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.4, "ratingsCount": 1200 },
-        { "id": "summer7", "title": "The Silent Patient", "authors": ["Alex Michaelides"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=5oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.1, "ratingsCount": 950 },
-        { "id": "summer8", "title": "Circe", "authors": ["Madeline Miller"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=6oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.3, "ratingsCount": 1100 },
-        { "id": "summer9", "title": "Little Fires Everywhere", "authors": ["Celeste Ng"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=7oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1050 },
-        { "id": "summer10", "title": "The Goldfinch", "authors": ["Donna Tartt"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=8oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.0, "ratingsCount": 800 }
+        {
+          "id": "nU7mEAAAQBAJ",
+          "title": "The Great Gatsby",
+          "authors": [
+            "F. Scott Fitzgerald"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=nU7mEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=nU7mEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "F. Scott Fitzgerald's 'The Great Gatsby' is a seminal work that encapsulates the opulence and disillusionment of the 1920s American Dream. Through its lush prose and innovative narrative style, Fitzgerald intertwines the stories of Jay Gatsby and Nick Carraway within the backdrop of a society grappling with newfound wealth, moral decay, and existential longing. The novel employs rich symbolism and vivid imagery, particularly through the iconic green light, to explore themes of aspiration, love, and the elusiveness of the American Dream, rendering it a cornerstone of modernist literature. Fitzgerald, a chronicler of his generation, drew upon his own experiences of wealth, ambition, and heartache in creating this masterpiece. His intimate understanding of both the glamour and the emptiness of the Jazz Age has influenced generations of writers and artists. The narrative reflects not only his personal struggles but also a critical observation of the societal transformations occurring during his lifetime, which ultimately culminated in this exploration of disillusionment. Readers seeking a profound yet accessible examination of 20th-century America cannot overlook 'The Great Gatsby.' With its intricate character studies and poignant reflections on desire and regret, this novel invites contemplation of our own pursuits of happiness and the shadows they cast. Ultimately, it remains a timeless exploration of hope, loss, and the complexities of the human experience.",
+          "publisher": "Good Press",
+          "publishedDate": "2023-12-13",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 184,
+          "infoLink": "https://play.google.com/store/books/details?id=nU7mEAAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "ayJpGQeyxgkC",
+          "title": "To Kill a Mockingbird",
+          "authors": [
+            "Harper Lee"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=ayJpGQeyxgkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=ayJpGQeyxgkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4,
+          "ratingsCount": 22,
+          "description": "The explosion of racial hate and violence in a small Alabama town is viewed by a little girl whose father defends a Black man accused of rape",
+          "publisher": "HarperCollins Christian Publishing",
+          "publishedDate": "1999-11-03",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 350,
+          "infoLink": "http://books.google.com/books?id=ayJpGQeyxgkC&dq=intitle:%22To+Kill+a+Mockingbird%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "lz-BoS0zjIgC",
+          "title": "The Alchemist",
+          "authors": [
+            "Paulo Coelho"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=lz-BoS0zjIgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=lz-BoS0zjIgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 5,
+          "ratingsCount": 3,
+          "description": "Every few decades a book is published that changes the lives of its readers forever. The Alchemist is such a book. With over two million copies sold in English and twenty-one million copies worldwide, The Alchemist has established itself as a modern classic that will enchant and inspire readers for generations to come.",
+          "publisher": "Harper Collins",
+          "publishedDate": "2005-11-01",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 207,
+          "infoLink": "http://books.google.com/books?id=lz-BoS0zjIgC&dq=intitle:%22The+Alchemist%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "neUlEAAAQBAJ",
+          "title": "Where the Crawdads Sing",
+          "authors": [
+            "Delia Owens"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=neUlEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=neUlEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "NOW A MAJOR MOTION PICTURE—The #1 New York Times bestselling worldwide sensation with more than 18 million copies sold, hailed by The New York Times Book Review as “a painfully beautiful first novel that is at once a murder mystery, a coming-of-age narrative and a celebration of nature.” New York Times Readers Pick: 100 Best Books of the 21st Century For years, rumors of the “Marsh Girl” have haunted Barkley Cove, a quiet town on the North Carolina coast. So in late 1969, when handsome Chase Andrews is found dead, the locals immediately suspect Kya Clark, the so-called Marsh Girl. But Kya is not what they say. Sensitive and intelligent, she has survived for years alone in the marsh that she calls home, finding friends in the gulls and lessons in the sand. Then the time comes when she yearns to be touched and loved. When two young men from town become intrigued by her wild beauty, Kya opens herself to a new life—until the unthinkable happens. Where the Crawdads Sing is at once an exquisite ode to the natural world, a heartbreaking coming-of-age story, and a surprising tale of possible murder. Owens reminds us that we are forever shaped by the children we once were, and that we are all subject to the beautiful and violent secrets that nature keeps.",
+          "publisher": "Penguin",
+          "publishedDate": "2021-03-30",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 401,
+          "infoLink": "http://books.google.com/books?id=neUlEAAAQBAJ&dq=intitle:%22Where+the+Crawdads+Sing%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "kwBlDwAAQBAJ",
+          "title": "Normal People",
+          "authors": [
+            "Sally Rooney"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=kwBlDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=kwBlDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 3,
+          "ratingsCount": 2,
+          "description": "NOW AN EMMY-NOMINATED HULU ORIGINAL SERIES • NEW YORK TIMES BESTSELLER • LONGLISTED FOR THE BOOKER PRIZE • “A stunning novel about the transformative power of relationships” (People) from the author of Conversations with Friends, “a master of the literary page-turner” (J. Courtney Sullivan). “[A] novel that demands to be read compulsively, in one sitting.”—The Washington Post ONE OF ENTERTAINMENT WEEKLY’S TEN BEST NOVELS OF THE DECADE TEN BEST BOOKS OF THE YEAR: People, Slate, The New York Public Library, Harvard Crimson Connell and Marianne grew up in the same small town, but the similarities end there. At school, Connell is popular and well liked, while Marianne is a loner. But when the two strike up a conversation—awkward but electrifying—something life changing begins. A year later, they’re both studying at Trinity College in Dublin. Marianne has found her feet in a new social world while Connell hangs at the sidelines, shy and uncertain. Throughout their years at university, Marianne and Connell circle one another, straying toward other people and possibilities but always magnetically, irresistibly drawn back together. And as she veers into self-destruction and he begins to search for meaning elsewhere, each must confront how far they are willing to go to save the other. Normal People is the story of mutual fascination, friendship, and love. It takes us from that first conversation to the years beyond, in the company of two people who try to stay apart but find that they can’t. WINNER: The British Book Award, The Costa Book Award, The An Post Irish Novel of the Year, Sunday Times Young Writer of the Year Award BEST BOOKS OF THE YEAR: The New York Times, The New York Times Book Review, Oprah Daily, Time, NPR, The Washington Post, Vogue, Esquire, Glamour, Elle, Marie Claire, Vox, The Paris Review, Good Housekeeping, Town & Country",
+          "publisher": "Crown",
+          "publishedDate": "2019-04-16",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 305,
+          "infoLink": "https://play.google.com/store/books/details?id=kwBlDwAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "2ObWDgAAQBAJ",
+          "title": "Educated",
+          "authors": [
+            "Tara Westover"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=2ObWDgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=2ObWDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4.5,
+          "ratingsCount": 5,
+          "description": "#1 NEW YORK TIMES, WALL STREET JOURNAL, AND BOSTON GLOBE BESTSELLER • One of the most acclaimed books of our time: an unforgettable memoir about a young woman who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University “Extraordinary . . . an act of courage and self-invention.”—The New York Times NAMED ONE OF THE TEN BEST BOOKS OF THE YEAR BY THE NEW YORK TIMES BOOK REVIEW • ONE OF PRESIDENT BARACK OBAMA’S FAVORITE BOOKS OF THE YEAR • BILL GATES’S HOLIDAY READING LIST • FINALIST: National Book Critics Circle’s Award In Autobiography and John Leonard Prize For Best First Book • PEN/Jean Stein Book Award • Los Angeles Times Book Prize Born to survivalists in the mountains of Idaho, Tara Westover was seventeen the first time she set foot in a classroom. Her family was so isolated from mainstream society that there was no one to ensure the children received an education, and no one to intervene when one of Tara’s older brothers became violent. When another brother got himself into college, Tara decided to try a new kind of life. Her quest for knowledge transformed her, taking her over oceans and across continents, to Harvard and to Cambridge University. Only then would she wonder if she’d traveled too far, if there was still a way home. “Beautiful and propulsive . . . Despite the singularity of [Westover’s] childhood, the questions her book poses are universal: How much of ourselves should we give to those we love? And how much must we betray them to grow up?”—Vogue ONE OF THE BEST BOOKS OF THE YEAR: The Washington Post, O: The Oprah Magazine, Time, NPR, Good Morning America, San Francisco Chronicle, The Guardian, The Economist, Financial Times, Newsday, New York Post, theSkimm, Refinery29, Bloomberg, Self, Real Simple, Town & Country, Bustle, Paste, Publishers Weekly, Library Journal, LibraryReads, Book Riot, Pamela Paul, KQED, New York Public Library",
+          "publisher": "Random House",
+          "publishedDate": "2018-02-20",
+          "categories": [
+            "Biography & Autobiography"
+          ],
+          "pageCount": 363,
+          "infoLink": "https://play.google.com/store/books/details?id=2ObWDgAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "tLdiDwAAQBAJ",
+          "title": "The Silent Patient",
+          "authors": [
+            "Alex Michaelides"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=tLdiDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=tLdiDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4,
+          "ratingsCount": 10,
+          "description": "**THE INSTANT #1 NEW YORK TIMES BESTSELLER** \"An unforgettable—and Hollywood-bound—new thriller... A mix of Hitchcockian suspense, Agatha Christie plotting, and Greek tragedy.\" —Entertainment Weekly The Silent Patient is a shocking psychological thriller of a woman’s act of violence against her husband—and of the therapist obsessed with uncovering her motive. Alicia Berenson’s life is seemingly perfect. A famous painter married to an in-demand fashion photographer, she lives in a grand house with big windows overlooking a park in one of London’s most desirable areas. One evening her husband Gabriel returns home late from a fashion shoot, and Alicia shoots him five times in the face, and then never speaks another word. Alicia’s refusal to talk, or give any kind of explanation, turns a domestic tragedy into something far grander, a mystery that captures the public imagination and casts Alicia into notoriety. The price of her art skyrockets, and she, the silent patient, is hidden away from the tabloids and spotlight at the Grove, a secure forensic unit in North London. Theo Faber is a criminal psychotherapist who has waited a long time for the opportunity to work with Alicia. His determination to get her to talk and unravel the mystery of why she shot her husband takes him down a twisting path into his own motivations—a search for the truth that threatens to consume him....",
+          "publisher": "Celadon Books",
+          "publishedDate": "2019-02-05",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 322,
+          "infoLink": "https://play.google.com/store/books/details?id=tLdiDwAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "GrGdDwAAQBAJ",
+          "title": "Circe",
+          "authors": [
+            "Madeline Miller"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=GrGdDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=GrGdDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "Di istana Helios, dewa matahari, lahir seorang anak perempuan. Tetapi Circe anak yang aneh––tidak berkuasa seperti ayahnya, juga tidak memikat seperti ibunya. Karena tak punya teman, Circe mencarinya di dunia manusia, dan mengembangkan kemampuannya sebagai penyihir. Zeus, yang merasa terancam, mengasingkannya ke pulau terpencil. Circe mengasah bakatnya dan bertemu banyak tokoh paling termasyhur dalam mitologi, di antaranya Minotaur, Daedalus dan Icarus, Medea, dan Odysseus yang lihai. Tetapi wanita yang hanya sendirian menghadapi banyak bahaya, dan Circe tanpa sengaja membangkitkan murka manusia dan dewa-dewa, sehingga mesti berhadapan dengan dewa Olympus yang paling menakutkan dan pendendam. Untuk melindungi apa yang paling dicintainya, Circe harus mengerahkan seluruh kekuatannya dan memilih dengan tegas, apakah hendak berpihak kepada dewa-dewa yang telah melahirkannya, atau manusia yang telanjur disayanginya.",
+          "publisher": "Gramedia pustaka utama",
+          "publishedDate": "2019-04-22",
+          "categories": [
+            "Juvenile Fiction"
+          ],
+          "pageCount": 546,
+          "infoLink": "https://play.google.com/store/books/details?id=GrGdDwAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "OsUPDgAAQBAJ",
+          "title": "Little Fires Everywhere",
+          "authors": [
+            "Celeste Ng"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=OsUPDgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=OsUPDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "The #1 New York Times bestseller • Named a Best Book of the Year by People, The Washington Post, Bustle, Esquire, Southern Living, The Daily Beast, GQ, Entertainment Weekly, NPR, Amazon, Barnes & Noble, iBooks, Audible, Goodreads, Library Reads, Book of the Month, Paste, Kirkus Reviews, St. Louis Post-Dispatch, and more “To say I love this book is an understatement. It’s a deep psychological mystery about the power of motherhood, the intensity of teenage love, and the danger of perfection. It moved me to tears.” —Reese Witherspoon From the bestselling author of Everything I Never Told You and Our Missing Hearts comes a riveting novel that traces the intertwined fates of the picture-perfect Richardson family and the enigmatic mother and daughter who upend their lives. In Shaker Heights, a placid, progressive suburb of Cleveland, everything is planned—from the layout of the winding roads, to the colors of the houses, to the successful lives its residents will go on to lead. And no one embodies this spirit more than Elena Richardson, whose guiding principle is playing by the rules. Enter Mia Warren—an enigmatic artist and single mother—who arrives in this idyllic bubble with her teenaged daughter Pearl, and rents a house from the Richardsons. Soon Mia and Pearl become more than tenants: all four Richardson children are drawn to the mother-daughter pair. But Mia carries with her a mysterious past and a disregard for the status quo that threatens to upend this carefully ordered community. When old family friends of the Richardsons attempt to adopt a Chinese-American baby, a custody battle erupts that dramatically divides the town—and puts Mia and Elena on opposing sides. Suspicious of Mia and her motives, Elena is determined to uncover the secrets in Mia’s past. But her obsession will come at unexpected and devastating costs. Little Fires Everywhere explores the weight of secrets, the nature of art and identity, and the ferocious pull of motherhood—and the danger of believing that following the rules can avert disaster. Named a Best Book of the Year by: People, The Washington Post, Bustle, Esquire, Southern Living, The Daily Beast, GQ, Entertainment Weekly, NPR, Amazon, Barnes & Noble, iBooks, Audible, Goodreads, Library Reads, Book of the Month, Paste, Kirkus Reviews, St. Louis Post-Dispatch, and more",
+          "publisher": "Penguin",
+          "publishedDate": "2017-09-12",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 354,
+          "infoLink": "https://play.google.com/store/books/details?id=OsUPDgAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "dvuK7isszLIC",
+          "title": "The Goldfinch",
+          "authors": [
+            "Donna Tartt"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=dvuK7isszLIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=dvuK7isszLIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4.5,
+          "ratingsCount": 7,
+          "description": "A young New Yorker grieving his mother's death is pulled into a gritty underworld of art and wealth in this “extraordinary” and beloved novel that \"connects with the heart as well as the mind\" (Stephen King, New York Times Book Review), named a New York Times Best Book of the 21st Century. Theo Decker, a 13-year-old New Yorker, miraculously survives an accident that kills his mother. Abandoned by his father, Theo is taken in by the family of a wealthy friend. Bewildered by his strange new home on Park Avenue, disturbed by schoolmates who don't know how to talk to him, and tormented above all by a longing for his mother, he clings to the one thing that reminds him of her: a small, mysteriously captivating painting that ultimately draws Theo into a wealthy and insular art community. As an adult, Theo moves silkily between the drawing rooms of the rich and the dusty labyrinth of an antiques store where he works. He is alienated and in love — and at the center of a narrowing, ever more dangerous circle. The Goldfinch is a mesmerizing, stay-up-all-night and tell-all-your-friends triumph, an old-fashioned story of loss and obsession, survival and self-invention. From the streets of New York to the dark corners of the art underworld, this \"soaring masterpiece\" examines the devastating impact of grief and the ruthless machinations of fate (Ron Charles, Washington Post).",
+          "publisher": "Little, Brown",
+          "publishedDate": "2013-10-22",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 820,
+          "infoLink": "https://play.google.com/store/books/details?id=dvuK7isszLIC&source=gbs_api"
+        }
       ]
     },
     {
       "id": 2,
       "name": "Sci-Fi Classics",
       "books": [
-        { "id": "scifi1", "title": "Dune", "authors": ["Frank Herbert"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=B1hSG45JCX4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.3, "ratingsCount": 1560 },
-        { "id": "scifi2", "title": "1984", "authors": ["George Orwell"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=2oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.4, "ratingsCount": 1890 },
-        { "id": "scifi3", "title": "The Hitchhiker's Guide to the Galaxy", "authors": ["Douglas Adams"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=3oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1120 },
-        { "id": "scifi4", "title": "Neuromancer", "authors": ["William Gibson"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=4oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.0, "ratingsCount": 780 },
-        { "id": "scifi5", "title": "Foundation", "authors": ["Isaac Asimov"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=5oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.1, "ratingsCount": 900 },
-        { "id": "scifi6", "title": "Brave New World", "authors": ["Aldous Huxley"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=6oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1100 },
-        { "id": "scifi7", "title": "Snow Crash", "authors": ["Neal Stephenson"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=7oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.0, "ratingsCount": 850 },
-        { "id": "scifi8", "title": "Ender's Game", "authors": ["Orson Scott Card"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=8oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.3, "ratingsCount": 1200 },
-        { "id": "scifi9", "title": "Fahrenheit 451", "authors": ["Ray Bradbury"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=9oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.1, "ratingsCount": 950 },
-        { "id": "scifi10", "title": "Do Androids Dream of Electric Sheep?", "authors": ["Philip K. Dick"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=10FyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1000 }
+        {
+          "id": "nrRKDwAAQBAJ",
+          "title": "Dune",
+          "authors": [
+            "Frank Herbert"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=nrRKDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=nrRKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4,
+          "ratingsCount": 1,
+          "description": "• DUNE: PART TWO • THE MAJOR MOTION PICTURE Directed by Denis Villeneuve, screenplay by Denis Villeneuve and Jon Spaihts, based on the novel Dune by Frank Herbert • Starring Timothée Chalamet, Zendaya, Rebecca Ferguson, Josh Brolin, Austin Butler, Florence Pugh, Dave Bautista, Christopher Walken, Stephen McKinley Henderson, Léa Seydoux, with Stellan Skarsgård, with Charlotte Rampling, and Javier Bardem Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time. Set on the desert planet Arrakis, Dune is the story of Paul Atreides—who would become known as Muad'Dib—and of a great family's ambition to bring to fruition mankind's most ancient and unattainable dream. A stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+          "publisher": "Penguin",
+          "publishedDate": "1990-09-01",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 897,
+          "infoLink": "http://books.google.com/books?id=nrRKDwAAQBAJ&dq=intitle:%22Dune%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "uyr8BAAAQBAJ",
+          "title": "1984",
+          "authors": [
+            "George Orwell"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=uyr8BAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=uyr8BAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4,
+          "ratingsCount": 7,
+          "description": "George Orwell's dystopian masterpiece, Nineteen Eighty-Four is perhaps the most pervasively influential book of the twentieth century, making famous Big Brother, newspeak and Room 101. 'Who controls the past controls the future: who controls the present controls the past'",
+          "publisher": "Arcturus Publishing",
+          "publishedDate": "2014-01-04",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 361,
+          "infoLink": "http://books.google.com/books?id=uyr8BAAAQBAJ&dq=intitle:%221984%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "gNwQpoCxe0QC",
+          "title": "The Hitchhiker's Guide to the Galaxy",
+          "authors": [
+            "Douglas Adams"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=gNwQpoCxe0QC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=gNwQpoCxe0QC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+          },
+          "averageRating": 4.5,
+          "ratingsCount": 147,
+          "description": "Just before the Earth is demolished to make way for a new hyperspatial expressway, Arthur Dent is plucked off the planet by his friend Ford Prefect from the planet Betelgeuse and begins his hitch-hiking misadventures throughout the universe.",
+          "publisher": "",
+          "publishedDate": "1981",
+          "categories": [
+            "Humorous stories"
+          ],
+          "pageCount": 228,
+          "infoLink": "http://books.google.com/books?id=gNwQpoCxe0QC&dq=intitle:%22The+Hitchhiker%27s+Guide+to+the+Galaxy%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "pNQiDQAAQBAJ",
+          "title": "Neuromancer",
+          "authors": [
+            "William Gibson"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=pNQiDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=pNQiDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "A deluxe hardcover edition of the pioneering cyberpunk novel that predicted our obsession with the Internet—part of Penguin Galaxy, a collectible series of six sci-fi/fantasy classics, featuring a series introduction by Neil Gaiman Winner of the AIGA + Design Observer 50 Books | 50 Covers competition Before the Internet was commonplace, William Gibson showed us the Matrix—a world within the world, the representation of every byte of data in cyberspace. Henry Dorsett Case was the sharpest data-thief in the Matrix, until an ex-employer crippled his nervous system. Now a new employer has recruited him for a last-chance run against an unthinkably powerful artificial intelligence. With a mirror-eyed girl street-samurai riding shotgun, he’s ready for the silicon-quick, bleakly prophetic adventure that upped the ante on an entire genre of fiction. Penguin Galaxy Six of our greatest masterworks of science fiction and fantasy, in dazzling collector-worthy hardcover editions, and featuring a series introduction by #1 New York Times bestselling author Neil Gaiman, Penguin Galaxy represents a constellation of achievement in visionary fiction, lighting the way toward our knowledge of the universe, and of ourselves. From historical legends to mythic futures, monuments of world-building to mind-bending dystopias, these touchstones of human invention and storytelling ingenuity have transported millions of readers to distant realms, and will continue for generations to chart the frontiers of the imagination. The Once and Future King by T. H. White Stranger in a Strange Land by Robert A. Heinlein Dune by Frank Herbert 2001: A Space Odyssey by Arthur C. Clarke The Left Hand of Darkness by Ursula K. Le Guin Neuromancer by William Gibson For more than seventy years, Penguin has been the leading publisher of classic literature in the English-speaking world. With more than 1,700 titles, Penguin Classics represents a global bookshelf of the best works throughout history and across genres and disciplines. Readers trust the series to provide authoritative texts enhanced by introductions and notes by distinguished scholars and contemporary authors, as well as up-to-date translations by award-winning translators.",
+          "publisher": "Penguin",
+          "publishedDate": "2016-10-25",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 306,
+          "infoLink": "http://books.google.com/books?id=pNQiDQAAQBAJ&dq=intitle:%22Neuromancer%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "IwywDY4P6gsC",
+          "title": "Foundation",
+          "authors": [
+            "Isaac Asimov"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=IwywDY4P6gsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=IwywDY4P6gsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4.5,
+          "ratingsCount": 81,
+          "description": "The first novel in Isaac Asimov’s classic science-fiction masterpiece, the Foundation series THE EPIC SAGA THAT INSPIRED THE APPLE TV+ SERIES FOUNDATION • Nominated as one of America’s best-loved novels by PBS’s The Great American Read For twelve thousand years the Galactic Empire has ruled supreme. Now it is dying. But only Hari Seldon, creator of the revolutionary science of psychohistory, can see into the future—to a dark age of ignorance, barbarism, and warfare that will last thirty thousand years. To preserve knowledge and save humankind, Seldon gathers the best minds in the Empire—both scientists and scholars—and brings them to a bleak planet at the edge of the galaxy to serve as a beacon of hope for future generations. He calls his sanctuary the Foundation. The Foundation novels of Isaac Asimov are among the most influential in the history of science fiction, celebrated for their unique blend of breathtaking action, daring ideas, and extensive worldbuilding. In Foundation, Asimov has written a timely and timeless novel of the best—and worst—that lies in humanity, and the power of even a few courageous souls to shine a light in a universe of darkness.",
+          "publisher": "Spectra",
+          "publishedDate": "2004-06-01",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 255,
+          "infoLink": "https://play.google.com/store/books/details?id=IwywDY4P6gsC&source=gbs_api"
+        },
+        {
+          "id": "sRXtAQAAQBAJ",
+          "title": "Brave New World",
+          "authors": [
+            "Aldous Huxley"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=sRXtAQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=sRXtAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "Aldous Huxley’s most enduring masterpiece, Brave New World, presents a darkly satiric vision of a “utopian” future that has both captivated and shocked readers for generations In the far future, the utopian World State seems like the ideal society—through the use of genetic engineering, the human race has been perfected, and all citizens are well provided for. There is no violence, babies are created in laboratories, and everyone consumes daily medication to fight depression and spends their time constantly seeking bodily pleasure through “Feelies”—movies that stimulate sight, hearing and touch. Humans are bred to be completely content with their assigned roles in society. However, not everyone is satisfied with the system. In the Central London Hatchery and Conditioning Centre, Bernard Max is unhappy, feeling that something is missing from his life. Shunning the shallow pleasures of promiscuity and mindless entertainment, Bernard longs to break free. It is with this goal in mind that he plans a visit to a Savage Reservation, where the past way of life is preserved. But his visit there will prompt dangerous questions and ignite a series of events with far-reaching consequences. Originally published in 1932, Brave New World presents a chilling imagining of a future in which humans are genetically designed and constantly drugged to be happy citizens who passively serve the ruling order. In his almost prophetic work of speculative fiction, Aldous Huxley predicted much of our current technology and social practices. His powerful novel is still as relevant as ever, both as a cautionary tale of the dangers of technology and as a provocative yet entertaining read.",
+          "publisher": "Harper Collins",
+          "publishedDate": "2014-01-01",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 258,
+          "infoLink": "http://books.google.com/books?id=sRXtAQAAQBAJ&dq=intitle:%22Brave+New+World%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "FU1bAAAAMAAJ",
+          "title": "Snow Crash",
+          "authors": [
+            "Neal Stephenson"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=FU1bAAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=FU1bAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+          },
+          "averageRating": 4,
+          "ratingsCount": 6,
+          "description": "Science fiction-roman.",
+          "publisher": "Spectra",
+          "publishedDate": "1993",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 490,
+          "infoLink": "http://books.google.com/books?id=FU1bAAAAMAAJ&dq=intitle:%22Snow+Crash%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "gHY9YEWN8TEC",
+          "title": "Ender's Game",
+          "authors": [
+            "Orson Scott Card"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=gHY9YEWN8TEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=gHY9YEWN8TEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4.5,
+          "ratingsCount": 113,
+          "description": "Child-hero Ender Wiggin must fight a desperate battle against a deadly alien race if mankind is to survive.",
+          "publisher": "Macmillan",
+          "publishedDate": "1992-08-15",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 260,
+          "infoLink": "http://books.google.com/books?id=gHY9YEWN8TEC&dq=intitle:%22Ender%27s+Game%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "OYtkbGl2j0sC",
+          "title": "Fahrenheit 451",
+          "authors": [
+            "Ray Bradbury"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=OYtkbGl2j0sC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=OYtkbGl2j0sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 3.5,
+          "ratingsCount": 346,
+          "description": "Nearly seventy years after its original publication, Ray Bradbury’s internationally acclaimed novel Fahrenheit 451 stands as a classic of world literature set in a bleak, dystopian future. Today its message has grown more relevant than ever before. Guy Montag is a fireman. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden. Montag never questions the destruction and ruin his actions produce, returning each day to his bland life and wife, Mildred, who spends all day with her television “family.” But when he meets an eccentric young neighbor, Clarisse, who introduces him to a past where people didn’t live in fear and to a present where one sees the world through the ideas in books instead of the mindless chatter of television, Montag begins to question everything he has ever known.",
+          "publisher": "Simon and Schuster",
+          "publishedDate": "2011-11-29",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 272,
+          "infoLink": "https://play.google.com/store/books/details?id=OYtkbGl2j0sC&source=gbs_api"
+        },
+        {
+          "id": "IiSEQgAACAAJ",
+          "title": "Do Androids Dream of Electric Sheep?",
+          "authors": [
+            "Philip K. Dick"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=IiSEQgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=IiSEQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "World War Terminus had left the Earth devastated. Through its ruins, bounty hunter Rick Deckard stalked, in search of the renegade replicants who were his prey. When he wasn¿t ¿retiring¿ them with his laser weapon, he dreamed of owning a live animal -- the ultimate status symbol in a world all but bereft of animal life. Then Rick got his chance: the assignment to kill six Nexus-6 targets, for a huge reward. But in Deckard¿s world things were never that simple, and his assignment quickly turned into a nightmare kaleidoscope of subterfuge and deceit -- and the threat of death for the hunter rather than the hunted...",
+          "publisher": "Phoenix",
+          "publishedDate": "1999",
+          "categories": [
+            "Androids"
+          ],
+          "pageCount": 210,
+          "infoLink": "http://books.google.com/books?id=IiSEQgAACAAJ&dq=intitle:%22Do+Androids+Dream+of+Electric+Sheep%3F%22&hl=&source=gbs_api"
+        }
       ]
     },
     {
       "id": 3,
       "name": "Business & Leadership",
       "books": [
-        { "id": "business1", "title": "Atomic Habits", "authors": ["James Clear"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.6, "ratingsCount": 2300 },
-        { "id": "business2", "title": "The 7 Habits of Highly Effective People", "authors": ["Stephen R. Covey"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=2oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.3, "ratingsCount": 1670 },
-        { "id": "business3", "title": "Thinking, Fast and Slow", "authors": ["Daniel Kahneman"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=3oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1450 },
-        { "id": "business4", "title": "Leaders Eat Last", "authors": ["Simon Sinek"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=4oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.4, "ratingsCount": 1200 },
-        { "id": "business5", "title": "Drive", "authors": ["Daniel H. Pink"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=5oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.1, "ratingsCount": 900 },
-        { "id": "business6", "title": "Grit", "authors": ["Angela Duckworth"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=6oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.3, "ratingsCount": 1100 },
-        { "id": "business7", "title": "Principles", "authors": ["Ray Dalio"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=7oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1050 },
-        { "id": "business8", "title": "The Lean Startup", "authors": ["Eric Ries"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=8oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.0, "ratingsCount": 800 },
-        { "id": "business9", "title": "Good to Great", "authors": ["Jim Collins"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=9oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.1, "ratingsCount": 950 },
-        { "id": "business10", "title": "The Hard Thing About Hard Things", "authors": ["Ben Horowitz"], "imageLinks": { "thumbnail": "https://books.google.com/books/content?id=10FyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" }, "averageRating": 4.2, "ratingsCount": 1000 }
+        {
+          "id": "WmqyDwAAQBAJ",
+          "title": "Atomic Habits",
+          "authors": [
+            "James Clear"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=WmqyDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=WmqyDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "நீங்கள் உங்கள் வாழ்க்கையை மாற்ற விரும்பினால், நீங்கள் பிரம்மாண்டமாக சிந்திக்க வேண்டும் என்று மக்கள் நினைக்கின்றனர். ஆனால், பழக்கங்களைப் பற்றி விரிவாக ஆய்வு செய்து அதில் உலகப் புகழ்பெற்ற நிபுணர்களில் ஒருவராகத் திகழுகின்ற ஜேம்ஸ் கிளியர் அதற்கு வேறொரு வழியைக் கண்டுபிடித்துள்ளார். தினமும் காலையில் ஐந்து நிமிடங்கள் முன்னதாகவே எழுந்திருத்தல், ஒரு பதினைந்து நிமிடங்கள் மெதுவோட்டத்தில் ஈடுபடுதல், கூடுதலாக ஒரு பக்கம் படித்தல் போன்ற நூற்றுக்கணக்கான சிறிய தீர்மானங்களின் கூட்டு விளைவிலிருந்துதான் உண்மையான மாற்றம் வருகிறது என்று அவர் கூறுகிறார்.<br>இந்தக் கடுகளவு மாற்றங்கள் எப்படி உங்கள் வாழ்க்கையைப் பெரிதும் மாற்றக்கூடிய விளைவுகளாக உருவெடுக்கின்றன என்பதை ஜேம்ஸ் இப்புத்தகத்தில் தெளிவாக வெளிப்படுத்துகிறார். அதற்கு அறிவியற்பூர்வமான விளக்கங்களையும் அவர் கொடுக்கிறார். ஒலிம்பிக்கில் தங்கப் பதக்கம் வென்றவர்கள், முன்னணி நிறுவனத் தலைவர்கள், புகழ்பெற்ற அறிவியலறிஞர்கள் ஆகியோரைப் பற்றிய உத்வேகமூட்டும் கதைகளைப் பயன்படுத்தி அவர் தன்னுடைய கோட்பாடுகளை விளக்கும் விதம் சுவாரசியமூட்டுவதாக இருக்கிறது.<br>இச்சிறு மாற்றங்கள் உங்கள் தொழில்வாழ்க்கையின்மீதும் உங்கள் உறவுகளின்மீதும் உங்கள் தனிப்பட்ட வாழ்வின்மீதும் அளப்பரிய தாக்கம் ஏற்படுத்தி அவற்றைப் பரிபூரணமாக மாற்றும் என்பது உறுதி.",
+          "publisher": "Manjul Publishing",
+          "publishedDate": "2023-07-14",
+          "categories": [
+            "Self-Help"
+          ],
+          "pageCount": 306,
+          "infoLink": "https://play.google.com/store/books/details?id=WmqyDwAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "OpUREAAAQBAJ",
+          "title": "The 7 Habits of Highly Effective People",
+          "authors": [
+            "Stephen R. Covey"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=OpUREAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=OpUREAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "What are the habits of successful people? The 7 Habits of Highly Effective People has captivated readers for 25 years: It has transformed the lives of Presidents and CEOs, educators, parents, and students — in short, millions of people of all ages and occupations have benefited from Dr. Covey's 7 Habits book. And, it can transform you. Twenty-fifth anniversary edition of the 7 Habits book: This twenty-fifth anniversary edition of Stephen Covey’s cherished classic commemorates the timeless wisdom and power of the 7 Habits book, and does it in a highly readable and understandable, interactive format. This updated interactive edition of Dr. Stephen R. Covey’s most famous work includes: • videos • easy to understand infographics • self-tests • and more What are the habits of successful people? This interactive 7 Habits book guides you through each habit step-by-step: • Habit 1: Be Proactive • Habit 2: Begin With The End In Mind • Habit 3: Put First Things First • Habit 4: Think Win-Win • Habit 5: Seek First To Understand Then Be Understood • Habit 6: Synergize • Habit 7: Sharpen The Saw The 7 Habits book: Dr. Covey's 7 Habits book is one of the most inspiring and impactful books ever written. Now you can enjoy and learn critical lessons about the habits of successful people that will enrich your life's experience. And, it's in an interactive format that makes it easy for you to learn and apply Dr. Covey's habits of successful people.",
+          "publisher": "Mango Media Inc.",
+          "publishedDate": "2015-03-10",
+          "categories": [
+            "Self-Help"
+          ],
+          "pageCount": 388,
+          "infoLink": "https://play.google.com/store/books/details?id=OpUREAAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "ZuKTvERuPG8C",
+          "title": "Thinking, Fast and Slow",
+          "authors": [
+            "Daniel Kahneman"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=ZuKTvERuPG8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=ZuKTvERuPG8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4,
+          "ratingsCount": 36,
+          "description": "*Major New York Times Bestseller *More than 2.6 million copies sold *One of The New York Times Book Review's ten best books of the year *Selected by The Wall Street Journal as one of the best nonfiction books of the year *Presidential Medal of Freedom Recipient *Daniel Kahneman's work with Amos Tversky is the subject of Michael Lewis's best-selling The Undoing Project: A Friendship That Changed Our Minds In his mega bestseller, Thinking, Fast and Slow, Daniel Kahneman, world-famous psychologist and winner of the Nobel Prize in Economics, takes us on a groundbreaking tour of the mind and explains the two systems that drive the way we think. System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical. The impact of overconfidence on corporate strategies, the difficulties of predicting what will make us happy in the future, the profound effect of cognitive biases on everything from playing the stock market to planning our next vacation—each of these can be understood only by knowing how the two systems shape our judgments and decisions. Engaging the reader in a lively conversation about how we think, Kahneman reveals where we can and cannot trust our intuitions and how we can tap into the benefits of slow thinking. He offers practical and enlightening insights into how choices are made in both our business and our personal lives—and how we can use different techniques to guard against the mental glitches that often get us into trouble. Topping bestseller lists for almost ten years, Thinking, Fast and Slow is a contemporary classic, an essential book that has changed the lives of millions of readers.",
+          "publisher": "Farrar, Straus and Giroux",
+          "publishedDate": "2011-10-25",
+          "categories": [
+            "Psychology"
+          ],
+          "pageCount": 511,
+          "infoLink": "https://play.google.com/store/books/details?id=ZuKTvERuPG8C&source=gbs_api"
+        },
+        {
+          "id": "6kKKDQAAQBAJ",
+          "title": "Leaders Eat Last",
+          "authors": [
+            "Simon Sinek"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=6kKKDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=6kKKDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 4,
+          "ratingsCount": 1,
+          "description": "The New York Times bestseller by the acclaimed, bestselling author of Start With Why and Together is Better. Now with an expanded chapter and appendix on leading millennials, based on Simon Sinek's viral video \"Millenials in the workplace\" (150+ million views). Imagine a world where almost everyone wakes up inspired to go to work, feels trusted and valued during the day, then returns home feeling fulfilled. This is not a crazy, idealized notion. Today, in many successful organizations, great leaders create environments in which people naturally work together to do remarkable things. In his work with organizations around the world, Simon Sinek noticed that some teams trust each other so deeply that they would literally put their lives on the line for each other. Other teams, no matter what incentives are offered, are doomed to infighting, fragmentation and failure. Why? The answer became clear during a conversation with a Marine Corps general. \"Officers eat last,\" he said. Sinek watched as the most junior Marines ate first while the most senior Marines took their place at the back of the line. What's symbolic in the chow hall is deadly serious on the battlefield: Great leaders sacrifice their own comfort--even their own survival--for the good of those in their care. Too many workplaces are driven by cynicism, paranoia, and self-interest. But the best ones foster trust and cooperation because their leaders build what Sinek calls a \"Circle of Safety\" that separates the security inside the team from the challenges outside. Sinek illustrates his ideas with fascinating true stories that range from the military to big business, from government to investment banking.",
+          "publisher": "Penguin",
+          "publishedDate": "2014-01-07",
+          "categories": [
+            "Business & Economics"
+          ],
+          "pageCount": 369,
+          "infoLink": "http://books.google.com/books?id=6kKKDQAAQBAJ&dq=intitle:%22Leaders+Eat+Last%22&hl=&source=gbs_api"
+        },
+        {
+          "id": "vV3JJCvQg8kC",
+          "title": "Drive",
+          "authors": [
+            "James Sallis"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=vV3JJCvQg8kC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=vV3JJCvQg8kC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 5,
+          "ratingsCount": 1,
+          "description": "A stunt driver for movies, Driver finds more excitement as a wheelman during robberies, but when a heist goes sour, a contract is put on his head and his survival skills burn up the pavement.",
+          "publisher": "Poisoned Pen Press Inc",
+          "publishedDate": "2005",
+          "categories": [
+            "Fiction"
+          ],
+          "pageCount": 169,
+          "infoLink": "https://play.google.com/store/books/details?id=vV3JJCvQg8kC&source=gbs_api"
+        },
+        {
+          "id": "pFoJCgAAQBAJ",
+          "title": "Grit",
+          "authors": [
+            "Angela Duckworth"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=pFoJCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=pFoJCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 3.5,
+          "ratingsCount": 2,
+          "description": "In this instant New York Times bestseller, Angela Duckworth shows anyone striving to succeed that the secret to outstanding achievement is not talent, but a special blend of passion and persistence she calls “grit.” “Inspiration for non-geniuses everywhere” (People). The daughter of a scientist who frequently noted her lack of “genius,” Angela Duckworth is now a celebrated researcher and professor. It was her early eye-opening stints in teaching, business consulting, and neuroscience that led to her hypothesis about what really drives success: not genius, but a unique combination of passion and long-term perseverance. In Grit, she takes us into the field to visit cadets struggling through their first days at West Point, teachers working in some of the toughest schools, and young finalists in the National Spelling Bee. She also mines fascinating insights from history and shows what can be gleaned from modern experiments in peak performance. Finally, she shares what she’s learned from interviewing dozens of high achievers—from JP Morgan CEO Jamie Dimon to New Yorker cartoon editor Bob Mankoff to Seattle Seahawks Coach Pete Carroll. “Duckworth’s ideas about the cultivation of tenacity have clearly changed some lives for the better” (The New York Times Book Review). Among Grit’s most valuable insights: any effort you make ultimately counts twice toward your goal; grit can be learned, regardless of IQ or circumstances; when it comes to child-rearing, neither a warm embrace nor high standards will work by themselves; how to trigger lifelong interest; the magic of the Hard Thing Rule; and so much more. Winningly personal, insightful, and even life-changing, Grit is a book about what goes through your head when you fall down, and how that—not talent or luck—makes all the difference. This is “a fascinating tour of the psychological research on success” (The Wall Street Journal).",
+          "publisher": "Simon and Schuster",
+          "publishedDate": "2016-05-03",
+          "categories": [
+            "Self-Help"
+          ],
+          "pageCount": 350,
+          "infoLink": "https://play.google.com/store/books/details?id=pFoJCgAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "alAZAAAAYAAJ",
+          "title": "Principles",
+          "authors": [
+            "Frederick Winslow Taylor"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=alAZAAAAYAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=alAZAAAAYAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "",
+          "publisher": "",
+          "publishedDate": "1919",
+          "categories": [
+            "Industrial efficiency"
+          ],
+          "pageCount": 154,
+          "infoLink": "https://play.google.com/store/books/details?id=alAZAAAAYAAJ&source=gbs_api"
+        },
+        {
+          "id": "tvfyz-4JILwC",
+          "title": "The Lean Startup",
+          "authors": [
+            "Eric Ries"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=tvfyz-4JILwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=tvfyz-4JILwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 3,
+          "ratingsCount": 35,
+          "description": "Most startups fail. But many of those failures are preventable. The Lean Startup is a new approach being adopted across the globe, changing the way companies are built and new products are launched. Eric Ries defines a startup as an organization dedicated to creating something new under conditions of extreme uncertainty. This is just as true for one person in a garage or a group of seasoned professionals in a Fortune 500 boardroom. What they have in common is a mission to penetrate that fog of uncertainty to discover a successful path to a sustainable business. The Lean Startup approach fosters companies that are both more capital efficient and that leverage human creativity more effectively. Inspired by lessons from lean manufacturing, it relies on “validated learning,” rapid scientific experimentation, as well as a number of counter-intuitive practices that shorten product development cycles, measure actual progress without resorting to vanity metrics, and learn what customers really want. It enables a company to shift directions with agility, altering plans inch by inch, minute by minute. Rather than wasting time creating elaborate business plans, The Lean Startup offers entrepreneurs—in companies of all sizes—a way to test their vision continuously, to adapt and adjust before it’s too late. Ries provides a scientific approach to creating and managing successful startups in a age when companies need to innovate more than ever.",
+          "publisher": "Crown Currency",
+          "publishedDate": "2011-09-13",
+          "categories": [
+            "Business & Economics"
+          ],
+          "pageCount": 337,
+          "infoLink": "https://play.google.com/store/books/details?id=tvfyz-4JILwC&source=gbs_api"
+        },
+        {
+          "id": "WCklCwAAQBAJ",
+          "title": "Good to Great",
+          "authors": [
+            "Instaread"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=WCklCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=WCklCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": null,
+          "ratingsCount": null,
+          "description": "Good to Great by Jim Collins | Key Takeaways, Analysis & Review Preview: What does it take to make something—an activity, a work of art, a company—great? What are the factors that distinguish the merely good from the truly great? In Good to Great: Why Some Companies Make the Leap...And Others Don’t, Jim Collinsoffers insight into what makes a business truly great… PLEASE NOTE: This is key takeaways and analysis of the book and NOT the original book. Inside this Instaread of Good to Great:Overview of the bookImportant PeopleKey TakeawaysAnalysis of Key Takeaways",
+          "publisher": "Instaread Summaries",
+          "publishedDate": "2015-12-07",
+          "categories": [
+            "Business & Economics"
+          ],
+          "pageCount": 36,
+          "infoLink": "https://play.google.com/store/books/details?id=WCklCwAAQBAJ&source=gbs_api"
+        },
+        {
+          "id": "620pAgAAQBAJ",
+          "title": "The Hard Thing About Hard Things",
+          "authors": [
+            "Ben Horowitz"
+          ],
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=620pAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=620pAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "averageRating": 3.5,
+          "ratingsCount": 2,
+          "description": "Ben Horowitz, cofounder of Andreessen Horowitz and one of Silicon Valley's most respected and experienced entrepreneurs, offers essential advice on building and running a startup—practical wisdom for managing the toughest problems business school doesn’t cover, based on his popular ben’s blog. While many people talk about how great it is to start a business, very few are honest about how difficult it is to run one. Ben Horowitz analyzes the problems that confront leaders every day, sharing the insights he’s gained developing, managing, selling, buying, investing in, and supervising technology companies. A lifelong rap fanatic, he amplifies business lessons with lyrics from his favorite songs, telling it straight about everything from firing friends to poaching competitors, cultivating and sustaining a CEO mentality to knowing the right time to cash in. Filled with his trademark humor and straight talk, The Hard Thing About Hard Things is invaluable for veteran entrepreneurs as well as those aspiring to their own new ventures, drawing from Horowitz's personal and often humbling experiences.",
+          "publisher": "Harper Collins",
+          "publishedDate": "2014-03-04",
+          "categories": [
+            "Business & Economics"
+          ],
+          "pageCount": 232,
+          "infoLink": "https://play.google.com/store/books/details?id=620pAgAAQBAJ&source=gbs_api"
+        }
       ]
     }
   ]
-} 
+}

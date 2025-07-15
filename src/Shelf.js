@@ -72,7 +72,7 @@ function Shelf({ shelf, books, shelfBooks, onChangeShelf, onDragOver, onDragLeav
                   onDragEnd={onBookDragEnd}
                   className={`shelf-book-item ${draggedBook?.id === book.id ? 'dragging' : ''}`}
                 >
-                  <Book onChangeShelf={onChangeShelf} book={book} onShowDetails={onShowDetails} />
+                  <Book onChangeShelf={onChangeShelf} book={book} onShowDetails={onShowDetails} isFeatured={!!shelfBooks} />
                 </motion.li>
               ))}
             </AnimatePresence>
