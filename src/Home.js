@@ -1,109 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Shelf from "./Shelf";
+import featuredShelvesData from "./data/featuredShelves.json";
 
 function Home() {
-  // Mock data for featured shelves with working book cover URLs or no URLs to trigger fallbacks
-  const featuredShelves = [
-    {
-      id: 1,
-      name: "Summer Reading List",
-      books: [
-        {
-          id: "summer1",
-          title: "The Great Gatsby",
-          authors: ["F. Scott Fitzgerald"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=ueSFAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.2,
-          ratingsCount: 1250
-        },
-        {
-          id: "summer2",
-          title: "To Kill a Mockingbird",
-          authors: ["Harper Lee"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.5,
-          ratingsCount: 2100
-        },
-        {
-          id: "summer3",
-          title: "The Alchemist",
-          authors: ["Paulo Coelho"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.1,
-          ratingsCount: 890
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: "Sci-Fi Classics",
-      books: [
-        {
-          id: "scifi1",
-          title: "Dune",
-          authors: ["Frank Herbert"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=B1hSG45JCX4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.3,
-          ratingsCount: 1560
-        },
-        {
-          id: "scifi2",
-          title: "1984",
-          authors: ["George Orwell"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.4,
-          ratingsCount: 1890
-        },
-        {
-          id: "scifi3",
-          title: "The Hitchhiker's Guide to the Galaxy",
-          authors: ["Douglas Adams"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.2,
-          ratingsCount: 1120
-        },
-        {
-          id: "scifi4",
-          title: "Neuromancer",
-          authors: ["William Gibson"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.0,
-          ratingsCount: 780
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: "Business & Leadership",
-      books: [
-        {
-          id: "business1",
-          title: "Atomic Habits",
-          authors: ["James Clear"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.6,
-          ratingsCount: 2300
-        },
-        {
-          id: "business2",
-          title: "The 7 Habits of Highly Effective People",
-          authors: ["Stephen R. Covey"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.3,
-          ratingsCount: 1670
-        },
-        {
-          id: "business3",
-          title: "Thinking, Fast and Slow",
-          authors: ["Daniel Kahneman"],
-          imageLinks: { thumbnail: "https://books.google.com/books/content?id=1oFyDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" },
-          averageRating: 4.2,
-          ratingsCount: 1450
-        }
-      ]
-    }
-  ];
+  // Get featured shelves data from JSON file
+  const { featuredShelves } = featuredShelvesData;
 
   // Function to get a placeholder book cover based on title
   const getPlaceholderCover = (title) => {
